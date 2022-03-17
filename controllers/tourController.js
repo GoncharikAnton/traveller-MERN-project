@@ -43,8 +43,6 @@ exports.getAllTours = async (req, res) => {
 
 
 
-
-
         // 4) Pagination
 
         query = query.skip(2).limit(10)

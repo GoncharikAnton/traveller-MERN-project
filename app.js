@@ -12,7 +12,7 @@ const PORT = config.get('PORT') || 5000;
 // 1) MIDDLEWARES
 
 app.use(express.json());
-app.use(express.static(`${__dirname}/public`));
+// app.use(express.static(`${__dirname}/public`));
 
 app.use((req, res, next) => {
     req.requestTime = new Date().toISOString();

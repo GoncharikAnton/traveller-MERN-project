@@ -1,6 +1,5 @@
 // 4) START SERVER
 
-
 const config = require("config");
 const mongoose = require("mongoose");
 
@@ -9,9 +8,6 @@ const app = require('./app');
 const PORT = config.get("PORT") || 5000;
 const DB = config.get("DATABASE").replace('<PASSWORD>',
     config.get("DATABASE_PASSWORD"));
-
-
-
 
 mongoose
     .connect(DB, {
