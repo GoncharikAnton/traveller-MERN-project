@@ -1,6 +1,6 @@
 {
   "PORT": 5000,
-  "jwtSecret": "anton traveller express mongo react js mongoose pet",
+  "JWT_SECRET": "anton traveller express mongo react js mongoose pet",
   "DATABASE_PASSWORD":"123456qwe",
   "DATABASE": "mongodb+srv://admin:<PASSWORD>@cluster0.6pd1c.mongodb.net/natours?retryWrites=true&w=majority",
   "BASE_URL": "http://localhost:5000"
