@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import 'materialize-css'
 import M from  'materialize-css/dist/js/materialize.min.js';
-
+import './Navbar.css'
 export const Navbar = () => {
 
     useEffect(() => {
@@ -12,10 +12,11 @@ export const Navbar = () => {
     });
         }, [])
 
+
         return (
-                <nav>
+                <nav className={'Navbar'}>
                     <div className="nav-wrapper cyan lighten-1">
-                        <a href="#!" className="brand-logo">Logo</a>
+                        <a href="#!" className="brand-logo"><img src='/img/logo/logo.svg' alt="logo"/>Traveller</a>
                         <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i
                             className="material-icons">menu</i></a>
                         <ul className="right hide-on-med-and-down">

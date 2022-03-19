@@ -1,0 +1,12 @@
+.Navbar {
+  color: black;
+}
+.Navbar .brand-logo {
+  display: flex;
+  justify-content: center;
+}
+.Navbar .brand-logo img {
+  margin: 0 10px;
+}
+
+/*# sourceMappingURL=Navbar.css.map */

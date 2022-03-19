@@ -1,0 +1,12 @@
+.Navbar{
+  color: black;
+
+  .brand-logo{
+    display: flex;
+    justify-content: center;
+
+    img{
+      margin: 0 10px;
+    }
+  }
+}

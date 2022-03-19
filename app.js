@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 const tourRouter = require('./routes/tourRoutes')
+const path = require("path");
 
 const app = express();
 
@@ -19,6 +20,11 @@ app.use((req, res, next) => {
     console.log(req.requestTime)
     next();
 })
+
+// USE STATIC FILES
+app.use(express.static(path.join(__dirname, 'static')));
+
+
 
 // 3)ROUTS
 // app.use('/api/v1/users', userRouter);
