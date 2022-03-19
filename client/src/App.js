@@ -1,15 +1,22 @@
 import './App.css';
 import 'materialize-css';
-// import Navbar from "./Components/Navbar/Navbar";
-import {Navbar} from "./Components/Navbar/Navbar";
-import {useCallback, useEffect, useState} from "react";
+// import {useCallback, useEffect, useState} from "react";
 import axios from "axios";
+import {Header} from "./Layouts/Header/Header";
 
 function App() {
-
+    const prop = {
+        title: 'Welcome to Traveller!',
+        description: 'We are glad to see you on our web-site! \n' +
+            'Here you can share your opinion about all your travels all over the world! And ofcourse you can take some;)\n' +
+            'Enjoy!',
+        rating: null,
+        author: null,
+        img: null
+    }
     return (
         <div className="App">
-        <Navbar/>
+            <Header props={prop}/>
         </div>
     );
 }

@@ -1,5 +1,5 @@
-.Navbar {
-  color: black;
+.Navbar * {
+  color: black !important;
 }
 .Navbar .brand-logo {
   display: flex;

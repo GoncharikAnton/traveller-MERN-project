@@ -5,38 +5,36 @@ import {useCallback, useEffect, useState} from "react";
 export const HomePage = () => {
     const [tours, setTours] = useState([])
 
-    const data = useCallback(async () => {
-        try {
-            const response = await fetch('/api/v1/tours', {method: 'GET'})
-            const data = await response.json()
-            console.log(...Object.values(data.data.tours))
-            await setTours([...Object.values(data.data.tours)])
-
-        }catch (e){
-            console.log(e.message)}
-    }, [tours])
-
-    useEffect(() => {
-        data()
-        return () => {}
-    }, [])
+    // const data = useCallback(async () => {
+    //     try {
+    //         const response = await fetch('/api/v1/tours', {method: 'GET'})
+    //         const data = await response.json()
+    //         console.log(...Object.values(data.data.tours))
+    //         await setTours([...Object.values(data.data.tours)])
+    //
+    //     }catch (e){
+    //         console.log(e.message)}
+    // }, [tours])
+    //
+    // useEffect(() => {
+    //     data()
+    //     return () => {}
+    // }, [])
 
 
 
 
     return (
-        <div className="App container">
-            <Navbar/>
-            <h1>Hello Traveller!</h1>
+        <div>
             {/*<button onClick={data}>DATA</button>*/}
-            {tours && tours.map((tour, index) => {
-                console.log(tour)
-                return <li key={index}>
-                    <h1>{tour.name}</h1>
-                    <h5>{tour.description}</h5>
-                    <h4>{tour.price}</h4>
-                </li>
-            })}
+            {/*{tours && tours.map((tour, index) => {*/}
+            {/*    console.log(tour)*/}
+            {/*    return <li key={index}>*/}
+            {/*        <h1>{tour.name}</h1>*/}
+            {/*        <h5>{tour.description}</h5>*/}
+            {/*        <h4>{tour.price}</h4>*/}
+            {/*    </li>*/}
+            {/*})}*/}
         </div>
     );
 }

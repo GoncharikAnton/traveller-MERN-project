@@ -1,0 +1,20 @@
+.HeaderMainDescription {
+  width: 100%;
+  height: 650px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.HeaderMainDescription ul {
+  margin: 230px auto;
+}
+.HeaderMainDescription ul li {
+  margin: 25px;
+  width: 80%;
+}
+
+/*# sourceMappingURL=HeaderMainDescription.css.map */
