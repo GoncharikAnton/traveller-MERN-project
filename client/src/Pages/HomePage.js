@@ -1,9 +1,10 @@
-import 'materialize-css';
-import {Navbar} from "./Components/Navbar/Navbar";
+// import 'materialize-css';
 import {useCallback, useEffect, useState} from "react";
+import {Header} from "../Layouts/Header/Header";
+import {CategorySwitcher} from "../Components/CategorySwitcher/CategorySwitcher";
 
-export const HomePage = () => {
-    const [tours, setTours] = useState([])
+export const HomePage = ({props}) => {
+    // const [tours, setTours] = useState([])
 
     // const data = useCallback(async () => {
     //     try {
@@ -26,6 +27,7 @@ export const HomePage = () => {
 
     return (
         <div>
+            <Header props={props}/>
             {/*<button onClick={data}>DATA</button>*/}
             {/*{tours && tours.map((tour, index) => {*/}
             {/*    console.log(tour)*/}
@@ -35,6 +37,9 @@ export const HomePage = () => {
             {/*        <h4>{tour.price}</h4>*/}
             {/*    </li>*/}
             {/*})}*/}
+            <div className={'container'}>
+                <CategorySwitcher/>
+            </div>
         </div>
     );
 }

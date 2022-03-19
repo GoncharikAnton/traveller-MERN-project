@@ -1,7 +1,8 @@
 import React, {useEffect} from 'react';
-import 'materialize-css'
+// import 'materialize-css'
 import M from  'materialize-css/dist/js/materialize.min.js';
 import './Navbar.css'
+import {Link} from "react-router-dom";
 export const Navbar = () => {
 
     useEffect(() => {
@@ -20,21 +21,21 @@ export const Navbar = () => {
                         <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i
                             className="material-icons">menu</i></a>
                         <ul className="right hide-on-med-and-down">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Blogs</a></li>
-                            <li><a href="#">Tours</a></li>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Contacts</a></li>
-                            <li><a href="#">Login/Register</a></li>
+                            <li><Link to="/">Home</Link></li>
+                            <li><Link to="/blogs">Blogs</Link></li>
+                            <li><Link to="/tours">Tours</Link></li>
+                            <li><Link to="/about_us">About Us</Link></li>
+                            <li><Link to="/contacts">Contacts</Link></li>
+                            <li><Link to="/">Login/Register</Link></li>
                         </ul>
                     </div>
                     <ul className="sidenav" id="mobile-demo">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Blogs</a></li>
-                        <li><a href="#">Tours</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Contacts</a></li>
-                        <li><a href="#">Login/Register</a></li>
+                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/blogs">Blogs</Link></li>
+                        <li><Link to="/tours">Tours</Link></li>
+                        <li><Link to="/about_us">About Us</Link></li>
+                        <li><Link to="/contacts">Contacts</Link></li>
+                        <li><Link to="/">Login/Register</Link></li>
                     </ul>
                 </nav>
         )

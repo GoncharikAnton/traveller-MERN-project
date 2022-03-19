@@ -1,6 +1,6 @@
 import React from 'react'
 import {Button} from "../Button/Button";
-import 'materialize-css';
+// import 'materialize-css';
 import './HeaderMainDescription.css'
 
 export const HeaderMainDescription = ({props}) => {
@@ -24,7 +24,7 @@ export const HeaderMainDescription = ({props}) => {
                     <li><h5>{props.rating}</h5></li>
                     <li><h4>{props.author}</h4></li>
                 </> : undefined}
-                {!props.author && <li><Button description={'Learn More'}/></li>}
+                {!props.author && <li><Button description={'Learn More'} to={'/'}/></li>}
             </ul>
 
         </div>

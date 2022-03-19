@@ -1,8 +1,13 @@
+import React from 'react'
+import {BrowserRouter} from "react-router-dom";
+import {useRoutes} from "./Routes/routes";
+import {Header} from "./Layouts/Header/Header";
+
+
+
 import './App.css';
 import 'materialize-css';
-// import {useCallback, useEffect, useState} from "react";
-import axios from "axios";
-import {Header} from "./Layouts/Header/Header";
+import {HomePage} from "./Pages/HomePage";
 
 function App() {
     const prop = {
@@ -15,9 +20,12 @@ function App() {
         img: null
     }
     return (
-        <div className="App">
-            <Header props={prop}/>
-        </div>
+        <BrowserRouter>
+            <div className="App">
+                <HomePage props={prop}/>
+            </div>
+        </BrowserRouter>
+
     );
 }
 

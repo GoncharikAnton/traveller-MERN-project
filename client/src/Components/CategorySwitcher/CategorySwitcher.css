@@ -1,0 +1,40 @@
+.CategorySwitcher {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.CategorySwitcher h3 {
+  width: 100%;
+  text-align: center;
+  border-bottom: 3px solid #00bcd4;
+  line-height: 0.1em;
+  margin: 40px 0 20px;
+}
+.CategorySwitcher h3 span {
+  background: #fff;
+  padding: 0 20px;
+  color: #00bcd4;
+}
+.CategorySwitcher p {
+  width: 100%;
+  text-align: center;
+  justify-self: center;
+  font-size: 25px;
+  color: #00bcd4;
+  font-weight: bold;
+}
+.CategorySwitcher ul {
+  margin: 25px auto;
+  justify-content: center;
+}
+.CategorySwitcher ul li {
+  margin: 0 25px;
+  width: 100px;
+  border: 2px solid #00bcd4;
+}
+.CategorySwitcher ul li a {
+  margin: -2px;
+  padding: 0;
+}
+
+/*# sourceMappingURL=CategorySwitcher.css.map */
