@@ -5,10 +5,11 @@ import {CategorySwitcher} from "../Components/CategorySwitcher/CategorySwitcher"
 import {Footer} from "../Layouts/Footer/Footer";
 import {IntroCard} from "../Components/IntroCard/IntroCard";
 import styles from './HomePage.module.css'
+import {TravelCardShort} from "../Components/TravelCardShort/TravelCardShort";
 
 export const HomePage = ({props}) => {
     // const [tours, setTours] = useState([])
-
+    const [category, setCategory] = useState('Travel')
     // const data = useCallback(async () => {
     //     try {
     //         const response = await fetch('/api/v1/tours', {method: 'GET'})
@@ -64,11 +65,13 @@ export const HomePage = ({props}) => {
         },
     }
 
+    const updateCategory = (category) => {
+        setCategory({category: category})
+    }
 
     return (
         <div>
             <Header props={props}/>
-
             {/*<button onClick={data}>DATA</button>*/}
             {/*{tours && tours.map((tour, index) => {*/}
             {/*    console.log(tour)*/}
@@ -91,7 +94,15 @@ export const HomePage = ({props}) => {
                                cardDescription={'Connect with more people, build influence, ' +
                                    'and create compelling content that is distinctly yours.'}/>
                 </div>
-                <CategorySwitcher props={blogs}/>
+
+                <CategorySwitcher blogs={blogs} updateCategory={updateCategory} category={category}/>
+                <div className={styles.shortCards}>
+                    <TravelCardShort category={category}/>
+                    <TravelCardShort category={category}/>
+                    <TravelCardShort category={category}/>
+
+                </div>
+
             </div>
             <Footer/>
         </div>

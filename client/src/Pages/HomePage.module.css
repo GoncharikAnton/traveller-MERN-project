@@ -4,4 +4,8 @@
   justify-content: space-around;
 }
 
+.shortCards {
+  display: flex;
+}
+
 /*# sourceMappingURL=HomePage.module.css.map */

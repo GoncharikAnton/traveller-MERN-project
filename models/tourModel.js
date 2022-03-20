@@ -45,6 +45,10 @@ const tourSchema = new mongoose.Schema({
         type: String,
         required: [true, 'A tour must have a cover image']
     },
+    category: {
+        type: [String],
+        required: [true, 'A tour must have a cover image']
+    },
     images: [String],
     createdAt:{
         type: Date,

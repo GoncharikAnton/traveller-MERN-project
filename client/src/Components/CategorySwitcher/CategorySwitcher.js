@@ -4,19 +4,24 @@ import 'materialize-css'
 import './CategorySwitcher.css'
 import {IntroCapTitle} from "../IntroCapTitle/IntroCapTitle";
 
-export const CategorySwitcher = ({props}) => {
-    console.log(props)
+export const CategorySwitcher = ({blogs, updateCategory , category}) => {
+
+
     return (
         <>
-            <IntroCapTitle capTitle={props.capTitle}/>
+            <IntroCapTitle capTitle={blogs.capTitle}/>
             <div className="CategorySwitcher">
                 <ul className="pagination">
                     {/*<li className="disabled"><a href="#!"><i className="material-icons">chevron_left</i></a></li>*/}
-                    <li className="waves-effect active cyan"><a href={props.cat1.to}>{props.cat1.title}</a></li>
-                    <li className="waves-effect"><a href={props.cat2.to}>{props.cat2.title}</a></li>
-                    <li className="waves-effect"><a href={props.cat3.to}>{props.cat3.title}</a></li>
-                    <li className="waves-effect "><a href={props.cat4.to}>{props.cat4.title}</a></li>
-                    {/*<li className="waves-effect"><a href="#">Sky</a></li>*/}
+                    <li className="waves-effect active cyan"><a>{blogs.cat1.title}</a></li>
+
+                    <li className="waves-effect"><a onClick={(e) => {
+                        console.log(blogs.cat2.title)
+                        return updateCategory(e.target.name)
+                    }} name={blogs.cat2.title}>{blogs.cat2.title}</a></li>
+
+                    <li className="waves-effect"><a >{blogs.cat3.title}</a></li>
+                    <li className="waves-effect "><a >{blogs.cat4.title}</a></li>
                     {/*<li className="waves-effect"><a href="#!"><i className="material-icons">chevron_right</i></a></li>*/}
                 </ul>
             </div>
