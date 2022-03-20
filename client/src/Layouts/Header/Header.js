@@ -4,9 +4,9 @@ import {HeaderMainDescription} from "../../Components/HeaderMainDescription/Head
 
 export const Header = ({props}) => {
     return (
-        <div className={'Header'}>
+        <header className={'Header'}>
             <Navbar/>
             <HeaderMainDescription props={props}/>
-        </div>
+        </header>
     )
 }

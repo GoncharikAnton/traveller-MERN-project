@@ -17,7 +17,7 @@ export const Navbar = () => {
         return (
                 <nav className={'Navbar'}>
                     <div className="nav-wrapper cyan lighten-1">
-                        <a href="#!" className="brand-logo"><img src='/img/logo/logo.svg' alt="logo"/>Traveller</a>
+                        <a href="#!" className="brand-logo"><img src='/img/svg/logo.svg' alt="logo"/>Traveller</a>
                         <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i
                             className="material-icons">menu</i></a>
                         <ul className="right hide-on-med-and-down">
