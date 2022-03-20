@@ -2,6 +2,7 @@
 import {useCallback, useEffect, useState} from "react";
 import {Header} from "../Layouts/Header/Header";
 import {CategorySwitcher} from "../Components/CategorySwitcher/CategorySwitcher";
+import {Footer} from "../Layouts/Footer/Footer";
 
 export const HomePage = ({props}) => {
     // const [tours, setTours] = useState([])
@@ -40,6 +41,7 @@ export const HomePage = ({props}) => {
             <div className={'container'}>
                 <CategorySwitcher/>
             </div>
+            <Footer/>
         </div>
     );
 }

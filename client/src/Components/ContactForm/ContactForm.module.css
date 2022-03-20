@@ -1,0 +1,31 @@
+.ContactForm {
+  width: 100%;
+  height: 650px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  background-image: url("../../../../static/img/nature/contact_form_img.jpg");
+}
+.ContactForm input {
+  margin: 25px auto !important;
+  background: rgba(0, 0, 0, 0.5) !important;
+  border: 2px solid #00BCD4 !important;
+  border-radius: 2px !important;
+  box-sizing: border-box !important;
+  color: #fff;
+  width: 81% !important;
+  resize: vertical !important;
+  text-align: start !important;
+}
+.ContactForm .ContactForm_inp1 {
+  margin: 100px 0 20px auto !important;
+}
+.ContactForm .ContactForm_inp3 {
+  height: 250px !important;
+}
+
+/*# sourceMappingURL=ContactForm.module.css.map */
