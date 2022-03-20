@@ -1,0 +1,7 @@
+.IntroCards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+/*# sourceMappingURL=HomePage.module.css.map */

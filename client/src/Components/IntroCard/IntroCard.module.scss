@@ -1,0 +1,31 @@
+.IntroCard{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  //border: 1px solid black;
+  margin: 15px 5px 0 5px;
+  width: calc(100% / 4 - 10px);
+  flex-direction: column;
+}
+
+.IntroCard_title , .IntroCard_description{
+  width: 100%;
+  text-align: center;
+  margin: 5px;
+  font-size: 2vh;
+}
+
+.IntroCard_title{
+  //font-size: 22px;
+  font-weight: bold;
+}
+
+.IntroCard_description{
+  //font-size: 20px;
+}
+
+.IntroCard_img{
+  width: 20%;
+  margin: 10px;
+}

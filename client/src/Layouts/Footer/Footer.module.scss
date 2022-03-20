@@ -1,3 +1,17 @@
-.ContactForm{
+.Footer{
+
+  h5 {
+    color: black !important;
+
+  }
+
+  .logo{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    img{
+      margin: 0 10px 0 0;
+    }
+  }
 
 }
