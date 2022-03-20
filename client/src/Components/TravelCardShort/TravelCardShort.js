@@ -3,9 +3,8 @@ import styles from './TravelCardShort.module.css'
 
 
 export const TravelCardShort = ({category}) => {
-    console.log(category)
     return (
-        <div className={`row ${styles.cards}`}>
+        <div className={`row ${styles.cards}`} >
             <div className="col s12 m12 l12">
                 <div className="card medium">
                     <div className="card-image">
