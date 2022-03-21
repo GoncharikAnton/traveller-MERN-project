@@ -45,7 +45,7 @@ exports.getAllTours = async (req, res) => {
 
 
         // 4) Pagination
-        query = query
+        query = query  // TODO
 
         // EXECUTE A QUERY
         const tours = await query;

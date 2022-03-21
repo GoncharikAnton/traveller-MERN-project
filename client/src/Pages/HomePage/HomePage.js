@@ -37,27 +37,31 @@ const blogs = {
 export const HomePage = ({props}) => {
     console.log('RENDER HOMEPAGE')
     const [tours, setTours] = useState([])
+    const [toursCat, setToursCat] = useState([])
     // const [blogCategory, setBlogCategory] = useState('Travel Advices')
-    const [tourCategory, setTourCategory] = useState('Ocean')
+    const [tourCategory, setTourCategory] = useState('Forest')
     // const tourCategory = useRef('Ocean');
-    const [tourResults, setTourResults] = useState(0)
 
     const data = useCallback(async () => {
         try {
-            const response = await axios.get('/api/v1/tours', {})
+            const response = await axios.get(`/api/v1/tours`, {})
+            const response_cat = await axios.get(`/api/v1/tours?category=${tourCategory}`, {})
             const data = response.data
+            const data_cat = response_cat.data
+            console.log(data_cat)
             await setTours([...data.data.tours])
-            await setTourResults(data.results)
+            await setToursCat([...data_cat.data.tours])
 
         }catch (e){
             console.log(e)}
-    }, [tours])
+    }, [tours, tourCategory])
+
 
 
     useEffect(() => {
         data()
         return () => {}
-    }, [])
+    }, [tourCategory])
 
     // const updateBlogCategory = (blogCategory) => {
     //     setBlogCategory({category: blogCategory})
@@ -96,7 +100,9 @@ export const HomePage = ({props}) => {
                     <CategorySwitcher tours={tours} updateCategory={setTourCategory} category={tourCategory}/>
                     <div className={styles.shortCards}>
 
-                        {<TourTravelCardShort category={tourCategory} tours={tours}/>}
+                        {toursCat.map((tour, i) => {
+                            return <TourTravelCardShort updateTourCategory={setTourCategory}key={i} category={tourCategory} tour={tour}/>
+                        })}
 
                         {/*{tours.map((tour, index) => {*/}
                         {/*    index < 3 ? <TourTravelCardShort category={tourCategory} tour={tour}/> : undefined*/}
