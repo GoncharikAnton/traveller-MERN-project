@@ -6,7 +6,6 @@ export const Header = ({props}) => {
     return (
         <header className={'Header'}>
             <Navbar/>
-            <HeaderMainDescription props={props}/>
         </header>
     )
 }

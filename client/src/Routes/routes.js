@@ -1,6 +1,6 @@
 import React from "react";
 import {Route, Routes, Navigate} from "react-router-dom";
-import {HomePage} from "../Pages/HomePage";
+import {HomePage} from "../Pages/HomePage/HomePage";
 
 
 export const useRoutes = isAuthenticated => {
