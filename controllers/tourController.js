@@ -15,7 +15,6 @@ exports.getAllTours = async (req, res) => {
         // BUILD A QUERY
         // 1A) Filtering
         const queryObj = {...req.query};
-        console.log(queryObj)
         const excludedFields = ['page', 'sort', 'limit', 'fields']
         excludedFields.forEach(el => delete queryObj[el]);
 
@@ -23,7 +22,8 @@ exports.getAllTours = async (req, res) => {
         let queryStr = JSON.stringify(queryObj);
         queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g,match =>`$${match}`);
         console.log(queryStr)
-        // const tours = await Tour.find();
+        // const tour = await Tour.find({ category: 'City' });
+        // console.log(tour)
         let query = Tour.find(JSON.parse(queryStr));
         // 2) Sorting
         if(req.query.sort) {
@@ -45,8 +45,7 @@ exports.getAllTours = async (req, res) => {
 
 
         // 4) Pagination
-        query = query.skip(2).limit(10)
-
+        query = query
 
         // EXECUTE A QUERY
         const tours = await query;

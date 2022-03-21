@@ -21,7 +21,8 @@ const tourSchema = new mongoose.Schema({
     },
     category: {
         type: String,
-        required: [true, 'A tour must have a category']
+        required: [true, 'A tour must have a category'],
+        trim: true
     },
     ratingsAverage: {
         type: Number,
