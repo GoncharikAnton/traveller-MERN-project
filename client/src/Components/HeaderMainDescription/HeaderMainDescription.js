@@ -1,14 +1,9 @@
 import React from 'react'
 import {Button} from "../Button/Button";
-// import 'materialize-css';
 import './HeaderMainDescription.css'
 
 export const HeaderMainDescription = ({props}) => {
-    // console.log(props)
-    // const style = async () => {
-    //     const main_img = await fetch('/static/img/nature/main.png')
-    //     console.log(main_img)
-    // }
+    console.log("HERO render")
     const style = {backgroundImage: 'url('+`${!props.author ? '/img/nature/main.png' : props.img}`+ ')'}
     return(
         <div className={'HeaderMainDescription container'}

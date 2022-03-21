@@ -9,6 +9,7 @@ import {TourTravelCardShort} from "../../Components/TourTravelCardShort/TourTrav
 import axios from "axios";
 import {IntroCapTitle} from "../../Components/IntroCapTitle/IntroCapTitle";
 import {Loader} from "../../Components/Loader/Loader";
+import {HeaderMainDescription} from "../../Components/HeaderMainDescription/HeaderMainDescription";
 
 
 const blogs = {
@@ -43,7 +44,7 @@ export const HomePage = ({props}) => {
 
     const data = useCallback(async () => {
         try {
-            const response = await axios.get('/api/v1/tours')
+            const response = await axios.get('/api/v1/tours', {})
             const data = response.data
             await setTours([...data.data.tours])
             await setTourResults(data.results)
@@ -76,7 +77,7 @@ export const HomePage = ({props}) => {
     if(tours.length){
         return (
             <div>
-                {/*<Header props={props}/>*/}
+                {/*<HeaderMainDescription props={props}/>*/}
                 <div className={'container'}>
                     {/*<div className={styles.IntroCards}>*/}
                     {/*    <IntroCard svg={'/img/svg/photo_camera.svg'} cardTitle={'Share your experience'}*/}
@@ -95,7 +96,7 @@ export const HomePage = ({props}) => {
                     <CategorySwitcher tours={tours} updateCategory={setTourCategory} category={tourCategory}/>
                     <div className={styles.shortCards}>
 
-                        {tours && <TourTravelCardShort category={tourCategory} tours={tours}/>}
+                        {<TourTravelCardShort category={tourCategory} tours={tours}/>}
 
                         {/*{tours.map((tour, index) => {*/}
                         {/*    index < 3 ? <TourTravelCardShort category={tourCategory} tour={tour}/> : undefined*/}

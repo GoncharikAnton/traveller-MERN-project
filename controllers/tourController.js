@@ -15,13 +15,14 @@ exports.getAllTours = async (req, res) => {
         // BUILD A QUERY
         // 1A) Filtering
         const queryObj = {...req.query};
+        console.log(queryObj)
         const excludedFields = ['page', 'sort', 'limit', 'fields']
         excludedFields.forEach(el => delete queryObj[el]);
 
         // 1B) Advanced filtering
         let queryStr = JSON.stringify(queryObj);
         queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g,match =>`$${match}`);
-
+        console.log(queryStr)
         // const tours = await Tour.find();
         let query = Tour.find(JSON.parse(queryStr));
         // 2) Sorting
@@ -44,12 +45,11 @@ exports.getAllTours = async (req, res) => {
 
 
         // 4) Pagination
-
         query = query.skip(2).limit(10)
-        
+
+
         // EXECUTE A QUERY
         const tours = await query;
-
         // const query = Tour.find()
         //     .where('duration').equals(5)
         //     .where('difficulty').equals('easy');

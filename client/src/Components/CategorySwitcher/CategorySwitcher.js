@@ -28,9 +28,8 @@ export const CategorySwitcher = ({tours = null, blogs = null, updateCategory}) =
     const passive_link = 'waves-effect';
 
 
-    const capTitle = useCallback(() => (tours ? 'Our tours' : "Traveller's Blog"), [tours])
+    const capTitle = tours ? 'Our tours' : "Traveller's Blog"
     // console.log(categories)
-    const title = React.useMemo(capTitle, [capTitle]);
 
     return (
         <>

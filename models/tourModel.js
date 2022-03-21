@@ -19,6 +19,10 @@ const tourSchema = new mongoose.Schema({
         type: String,
         required: [true, 'A tour must have a difficulty']
     },
+    category: {
+        type: String,
+        required: [true, 'A tour must have a category']
+    },
     ratingsAverage: {
         type: Number,
         default: 4.5
@@ -42,10 +46,6 @@ const tourSchema = new mongoose.Schema({
         trim: true,
     },
     imageCover: {
-        type: String,
-        required: [true, 'A tour must have a cover image']
-    },
-    category: {
         type: String,
         required: [true, 'A tour must have a cover image']
     },
