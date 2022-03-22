@@ -7,7 +7,7 @@ import axios from "axios";
 
 export const CategorySwitcher = ({
                                      updateCategory,
-                                     activeCategory = 'Forest',
+                                     activeCategory = null,
                                      rely = 'tours'
                                  }) => {
 
@@ -50,7 +50,7 @@ export const CategorySwitcher = ({
                     {categories && categories.map((cat, ind) => {
                         return <li className={`${activeCategory === cat.name ? active_link :
                             passive_link}`}
-                                   key={ind}
+                                   key={cat._id}
                                    category={cat.name}
                                    onClick={(e) => {
                                        return updateCategory(e.target.attributes.getNamedItem("category").value)

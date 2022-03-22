@@ -12,17 +12,7 @@ import {HeaderMainDescription} from "../../Components/HeaderMainDescription/Head
 import {Button} from "../../Components/Button/Button";
 
 
-
 export const HomePage = () => {
-    const props = {
-        title: 'Welcome to Traveller!',
-        description: 'We are glad to see you on our web-site! \n' +
-            'Here you can share your opinion about all your travels all over the world! And of-course you can take some;)\n' +
-            'Enjoy!',
-        rating: null,
-        author: null,
-        img: null
-    }
 
     const [tours, setTours] = useState([])
     // const [blogCategory, setBlogCategory] = useState('Travel Advices')
@@ -46,6 +36,7 @@ export const HomePage = () => {
 
     useEffect(() => {
         data()
+        // console.log(d)
         return () => {}
     }, [tourCategory])
 
@@ -53,7 +44,10 @@ export const HomePage = () => {
     if(tours.length){
         return (
             <div>
-                <HeaderMainDescription props={props}/>
+                <HeaderMainDescription title={'Welcome to Traveller!'}
+                description={'We are glad to see you on our web-site! \n' +
+                'Here you can share your opinion about all your travels all over the world! And of-course you can take some;)\n' +
+                'Enjoy!'}/>
                 <div className={'container'}>
                     <div className={styles.IntroCards}>
                         <IntroCard svg={'/img/svg/photo_camera.svg'} cardTitle={'Share your experience'}

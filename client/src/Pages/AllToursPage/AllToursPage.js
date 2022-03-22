@@ -1,40 +1,50 @@
-import React, {useCallback} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 
 import styles from "./AllToursPage.module.css"
 import {Loader} from "../../Components/Loader/Loader";
 import axios from "axios";
+import {HeaderMainDescription} from "../../Components/HeaderMainDescription/HeaderMainDescription";
+import {CategorySwitcher} from "../../Components/CategorySwitcher/CategorySwitcher";
+import {getTours} from "../../DataMining/getTours";
+import {TourTravelCardLong} from "../../Components/TourTravelCardLong/TourTravelCardLong";
 
 
 export const AllToursPage = () => {
+    const [tours, setTours] = useState([])
+    const [category, setCategory] = useState(null)
 
-    // const data = useCallback(async () => {
-    //     try {
-    //         const response = await axios.get(`/api/v1/tours`, {})
-    //         // const response_cat = await axios.get(`/api/v1/tours?category=${tourCategory}`, {})
-    //         const data = response.data
-    //         // const data_cat = response_cat.data
-    //         await setTours([...data.data.tours])
-    //         // await setToursCat([...data_cat.data.tours])
-    //
-    //
-    //     }catch (e){
-    //         // error.current = e
-    //         console.log(e)
-    //         setError(e.request.status)
-    //         console.log(e.request.status)
-    //     }
-    // }, [tours, tourCategory])
-    //
-    // if(true){
-    //     return (
-    //         <div></div>
-    //     )
-    // }
 
-    return(
-        <div>
-            <Loader/>
+    useEffect(() => {
+        getTours()
+            .then((data) => {
+                if(data.status === 'success'){
+                    setTours([...data.data.tours])
+                }
+            })
+            .catch(e => {
+                console.log(e)
+            })
+        return () => {}
+    }, [])
 
-        </div>
+
+    return (
+        <>
+            <HeaderMainDescription title={'Tours'} description={'Here you can take OUR tours! \n' +
+                'Our’s tour guides are the bests in this!They will show you the best places of our planet! \n' +
+                'If you need to consult, call us or write on e-mail!'} to={'/contacts'} buttonDescription={'Contact us!'}
+            />
+            <div className={'container'}>
+                <CategorySwitcher updateCategory={setCategory} />
+                {!tours && <Loader/>}
+                {!category && tours.map((tour) => {
+                    return <TourTravelCardLong key={tour._id} tour={tour}/>
+                } )}
+                {category && tours.filter((tour) => (tour.category === category)).map((tour) => {
+                    return <TourTravelCardLong key={tour._id} tour={tour}/>
+                } )}
+            </div>
+
+        </>
     )
 }
