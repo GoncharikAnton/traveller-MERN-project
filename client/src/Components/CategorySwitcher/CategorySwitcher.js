@@ -3,31 +3,43 @@ import {Link} from 'react-router-dom'
 import 'materialize-css'
 import './CategorySwitcher.css'
 import {IntroCapTitle} from "../IntroCapTitle/IntroCapTitle";
+import axios from "axios";
 
-export const CategorySwitcher = ({tours = null, blogs = null, updateCategory, activeCategory = 'Forest'}) => {
+export const CategorySwitcher = ({
+                                     updateCategory,
+                                     activeCategory = 'Forest',
+                                     rely = 'tours'
+                                 }) => {
 
-    // console.log('rendered from category switcher')
 
-    const [categories, setCategories] = useState([])
+    console.log('rendered from category switcher')
 
-    const getCategories = () => {
-        const data = tours ? tours : blogs;
-        const category_arr = []
-        for (let i = 0; i < data.length; i++) {
-            if(category_arr.includes(data[i].category)){
-                continue
+    const [categories, setCategories] = useState(null)
+    const [error, setError] = useState(null)
+
+
+    const data = useCallback(async () => {
+        try {
+            const response = await axios.get(`/api/v1/category?rely=${rely}`, {})
+            const data = await response.data
+            if (data.status === 'success') {
+                setCategories(data.data.categories)
             }
-            category_arr.push(data[i].category)
+        } catch (e) {
+            console.log(e)
         }
-        return setCategories([...category_arr])
-    }
+    }, [])
 
-    useEffect(() => {getCategories()}, [])
+    useEffect(() => {
+        data()
+        return () => {
+        }
+    }, [setCategories])
 
 
     const active_link = 'waves-effect active cyan';
     const passive_link = 'waves-effect';
-    const capTitle = tours ? 'Our tours' : "Traveller's Blogs"
+    const capTitle = rely === 'tours' ? 'Our tours' : "Traveller's Blogs"
     return (
         <>
             <IntroCapTitle capTitle={capTitle}/>
@@ -35,20 +47,16 @@ export const CategorySwitcher = ({tours = null, blogs = null, updateCategory, ac
                 <ul className="pagination">
 
                     {/*<li className="waves-effect active cyan"><a>{blogs.cat1.title}</a></li> //////////////*/}
-
                     {categories && categories.map((cat, ind) => {
-                        return <li className={`${activeCategory === cat ? active_link :
+                        return <li className={`${activeCategory === cat.name ? active_link :
                             passive_link}`}
                                    key={ind}
-                                   category={cat}
+                                   category={cat.name}
                                    onClick={(e) => {
-
-                                       // e.target.className = active_link;
                                        return updateCategory(e.target.attributes.getNamedItem("category").value)
                                    }}
-                        >{cat}</li>
+                        >{cat.name}</li>
                     })}
-
                     {/*<li className="waves-effect"><a href="#!"><i className="material-icons">chevron_right</i></a></li>*/}
                 </ul>
             </div>

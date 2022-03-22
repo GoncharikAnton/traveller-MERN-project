@@ -25,35 +25,24 @@ export const HomePage = () => {
     }
 
     const [tours, setTours] = useState([])
-    const [toursByCat, setToursByCat] = useState([])
     // const [blogCategory, setBlogCategory] = useState('Travel Advices')
     const [tourCategory, setTourCategory] = useState('Forest')
     const [error, setError] = useState(null)
+
     const data = useCallback(async () => {
         try {
-            const response = await axios.get(`/api/v1/tours`, {})
-            // const response_cat = await axios.get(`/api/v1/tours?category=${tourCategory}`, {})
+            // const response = await axios.get(`/api/v1/tours`, {})
+            const response = await axios.get(`/api/v1/tours?category=${tourCategory}`, {})
             const data = response.data
-            // const data_cat = response_cat.data
             await setTours([...data.data.tours])
-            // await setToursCat([...data_cat.data.tours])
-
 
         }catch (e){
-            // error.current = e
             console.log(e)
             setError(e.request.status)
             console.log(e.request.status)
         }
-    }, [tours, tourCategory])
+    }, [tourCategory])
 
-    useEffect(() => {
-        setToursByCat([])
-        let toursByCatTemp = tours.filter((tour) => tour.category === tourCategory)
-        setToursByCat([...toursByCatTemp])
-
-        return () => {}
-    }, [tours])
 
     useEffect(() => {
         data()
@@ -80,30 +69,17 @@ export const HomePage = () => {
                     </div>
 
 
-                    <CategorySwitcher tours={tours} updateCategory={setTourCategory} activeCategory={tourCategory}/>
+                    <CategorySwitcher updateCategory={setTourCategory} activeCategory={tourCategory}
+                                      rely={'tours'}/>
                     <div className={styles.shortCards}>
 
-                        {toursByCat.map((tour, i) => {
+                        {tours.map((tour, i) => {
                             return <TourTravelCardShort updateTourCategory={setTourCategory} key={i}
                                                         tour={tour}/>
                         })}
-                        {/*{tours.map((tour, index) => {*/}
-                        {/*    index < 3 ? <TourTravelCardShort category={tourCategory} tour={tour}/> : undefined*/}
-                        {/*})}*/}
+
                     </div>
                     <Button to={'/tours'} description={'See more our tours'}/>
-
-                    <CategorySwitcher tours={tours} updateCategory={setTourCategory} activeCategory={tourCategory}/>
-                    <div className={styles.shortCards}>
-
-                        {toursByCat.map((tour, i) => {
-                            return <TourTravelCardShort updateTourCategory={setTourCategory} key={i}
-                                                        tour={tour}/>
-                        })}
-                        {/*{tours.map((tour, index) => {*/}
-                        {/*    index < 3 ? <TourTravelCardShort category={tourCategory} tour={tour}/> : undefined*/}
-                        {/*})}*/}
-                    </div>
 
                 </div>
             </div>
@@ -115,6 +91,5 @@ export const HomePage = () => {
             <>
                 {!error ? <Loader/> : <h3>SOMETHING WENT WRONG, RELOAD THE PAGE</h3>}
             </>
-            // <Loader/>
     )
 }

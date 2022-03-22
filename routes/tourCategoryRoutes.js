@@ -9,4 +9,9 @@ router
     .get(tourCategoryController.getAllCategories)
     .post(tourCategoryController.createCategory);
 
+router
+    .route('/:id/:x?')
+    .get(tourCategoryController.getCategory)
+
+
 module.exports = router;
