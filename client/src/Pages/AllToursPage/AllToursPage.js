@@ -35,7 +35,7 @@ export const AllToursPage = () => {
                 'If you need to consult, call us or write on e-mail!'} to={'/contacts'} buttonDescription={'Contact us!'}
             />
             <div className={'container'}>
-                <CategorySwitcher updateCategory={setCategory} />
+                <CategorySwitcher updateCategory={setCategory} activeCategory={category}/>
                 {!tours && <Loader/>}
                 {!category && tours.map((tour) => {
                     return <TourTravelCardLong key={tour._id} tour={tour}/>
