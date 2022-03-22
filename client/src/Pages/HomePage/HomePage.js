@@ -12,51 +12,39 @@ import {Loader} from "../../Components/Loader/Loader";
 import {HeaderMainDescription} from "../../Components/HeaderMainDescription/HeaderMainDescription";
 
 
-const blogs = {
-    capTitle: "Travel's blogs",
-    cat1: {
-        title: 'Travel Advices',
-        to: '/'
-    },
-    cat2: {
-        title: 'Work & Travel',
-        to: '/'
-    },
-    cat3: {
-        title: 'By Country',
-        to: '/'
-    },
-    cat4: {
-        title: 'Travel Costs',
-        to: '/'
-    },
-}
-
-
 
 export const HomePage = ({props}) => {
     console.log('RENDER HOMEPAGE')
     const [tours, setTours] = useState([])
-    const [toursCat, setToursCat] = useState([])
+    const [toursByCat, setToursByCat] = useState([])
     // const [blogCategory, setBlogCategory] = useState('Travel Advices')
     const [tourCategory, setTourCategory] = useState('Forest')
-    // const tourCategory = useRef('Ocean');
-
+    const [error, setError] = useState(null)
     const data = useCallback(async () => {
         try {
             const response = await axios.get(`/api/v1/tours`, {})
-            const response_cat = await axios.get(`/api/v1/tours?category=${tourCategory}`, {})
+            // const response_cat = await axios.get(`/api/v1/tours?category=${tourCategory}`, {})
             const data = response.data
-            const data_cat = response_cat.data
-            console.log(data_cat)
+            // const data_cat = response_cat.data
             await setTours([...data.data.tours])
-            await setToursCat([...data_cat.data.tours])
+            // await setToursCat([...data_cat.data.tours])
+
 
         }catch (e){
-            console.log(e)}
+            // error.current = e
+            console.log(e)
+            setError(e.request.status)
+            console.log(e.request.status)
+        }
     }, [tours, tourCategory])
 
+    useEffect(() => {
+        setToursByCat([])
+        let toursByCatTemp = tours.filter((tour) => tour.category === tourCategory)
+        setToursByCat([...toursByCatTemp])
 
+        return () => {}
+    }, [tours])
 
     useEffect(() => {
         data()
@@ -81,46 +69,57 @@ export const HomePage = ({props}) => {
     if(tours.length){
         return (
             <div>
-                {/*<HeaderMainDescription props={props}/>*/}
+                <HeaderMainDescription props={props}/>
                 <div className={'container'}>
-                    {/*<div className={styles.IntroCards}>*/}
-                    {/*    <IntroCard svg={'/img/svg/photo_camera.svg'} cardTitle={'Share your experience'}*/}
-                    {/*               cardDescription={'Connect with more people, build influence, ' +*/}
-                    {/*                   'and create compelling content that is distinctly yours.'}/>*/}
-                    {/*    <IntroCard svg={'/img/svg/camera_roll.svg'} cardTitle={'Make memorable videos'}*/}
-                    {/*               cardDescription={'Express yourself in new ways with the latest Instagram features.'}/>*/}
-                    {/*    <IntroCard svg={'/img/svg/photo_frame.svg'} cardTitle={'Retouch'}*/}
-                    {/*               cardDescription={'Share and grow your brand with our diverse, global community.'}/>*/}
-                    {/*    <IntroCard svg={'/img/svg/photo_camera.svg'} cardTitle={'Share your experience'}*/}
-                    {/*               cardDescription={'Connect with more people, build influence, ' +*/}
-                    {/*                   'and create compelling content that is distinctly yours.'}/>*/}
-                    {/*</div>*/}
+                    <div className={styles.IntroCards}>
+                        <IntroCard svg={'/img/svg/photo_camera.svg'} cardTitle={'Share your experience'}
+                                   cardDescription={'Connect with more people, build influence, ' +
+                                       'and create compelling content that is distinctly yours.'}/>
+                        <IntroCard svg={'/img/svg/camera_roll.svg'} cardTitle={'Make memorable videos'}
+                                   cardDescription={'Express yourself in new ways with the latest Instagram features.'}/>
+                        <IntroCard svg={'/img/svg/photo_frame.svg'} cardTitle={'Retouch'}
+                                   cardDescription={'Share and grow your brand with our diverse, global community.'}/>
+                        <IntroCard svg={'/img/svg/photo_camera.svg'} cardTitle={'Share your experience'}
+                                   cardDescription={'Connect with more people, build influence, ' +
+                                       'and create compelling content that is distinctly yours.'}/>
+                    </div>
 
 
-                    <CategorySwitcher tours={tours} updateCategory={setTourCategory} category={tourCategory}/>
+                    <CategorySwitcher tours={tours} updateCategory={setTourCategory} activeCategory={tourCategory}/>
                     <div className={styles.shortCards}>
 
-                        {toursCat.map((tour, i) => {
-                            return <TourTravelCardShort updateTourCategory={setTourCategory}key={i} category={tourCategory} tour={tour}/>
+                        {toursByCat.map((tour, i) => {
+                            return <TourTravelCardShort updateTourCategory={setTourCategory} key={i}
+                                                        tour={tour}/>
                         })}
-
                         {/*{tours.map((tour, index) => {*/}
                         {/*    index < 3 ? <TourTravelCardShort category={tourCategory} tour={tour}/> : undefined*/}
                         {/*})}*/}
+                    </div>
 
+                    <CategorySwitcher tours={tours} updateCategory={setTourCategory} activeCategory={tourCategory}/>
+                    <div className={styles.shortCards}>
 
-
-
+                        {toursByCat.map((tour, i) => {
+                            return <TourTravelCardShort updateTourCategory={setTourCategory} key={i}
+                                                        tour={tour}/>
+                        })}
+                        {/*{tours.map((tour, index) => {*/}
+                        {/*    index < 3 ? <TourTravelCardShort category={tourCategory} tour={tour}/> : undefined*/}
+                        {/*})}*/}
                     </div>
 
                 </div>
-                {/*<Footer/>*/}
+                <Footer/>
             </div>
         );
     }
 
 
         return(
-        <Loader/>
+            <>
+                {!error ? <Loader/> : <h3>SOMETHING WENT WRONG, RELOAD THE PAGE</h3>}
+            </>
+            // <Loader/>
     )
 }

@@ -4,33 +4,30 @@ import 'materialize-css'
 import './CategorySwitcher.css'
 import {IntroCapTitle} from "../IntroCapTitle/IntroCapTitle";
 
-export const CategorySwitcher = ({tours = null, blogs = null, updateCategory}) => {
+export const CategorySwitcher = ({tours = null, blogs = null, updateCategory, activeCategory}) => {
 
-    console.log('rendered from category switcher')
+    // console.log('rendered from category switcher')
 
     const [categories, setCategories] = useState([])
 
     const getCategories = () => {
         const data = tours ? tours : blogs;
-        const categor_arr = []
+        const category_arr = []
         for (let i = 0; i < data.length; i++) {
-            categor_arr.includes(data[i].category) ? i++ : categor_arr.push(data[i].category)
+            if(category_arr.includes(data[i].category)){
+                continue
+            }
+            category_arr.push(data[i].category)
         }
-        return setCategories([...categor_arr])
+        return setCategories([...category_arr])
     }
 
-    useEffect(() => {getCategories()}, [tours, blogs])
-
-
+    useEffect(() => {getCategories()}, [])
 
 
     const active_link = 'waves-effect active cyan';
     const passive_link = 'waves-effect';
-
-
     const capTitle = tours ? 'Our tours' : "Traveller's Blog"
-    // console.log(categories)
-
     return (
         <>
             <IntroCapTitle capTitle={capTitle}/>
@@ -40,13 +37,14 @@ export const CategorySwitcher = ({tours = null, blogs = null, updateCategory}) =
                     {/*<li className="waves-effect active cyan"><a>{blogs.cat1.title}</a></li> //////////////*/}
 
                     {categories && categories.map((cat, ind) => {
-                        return <li className="waves-effect"
+                        return <li className={`${activeCategory === cat ? active_link :
+                            passive_link}`}
                                    key={ind}
                                    category={cat}
                                    onClick={(e) => {
-                                       e.target.className = active_link;
+
+                                       // e.target.className = active_link;
                                        return updateCategory(e.target.attributes.getNamedItem("category").value)
-                                       // return updateCategory('mountain')
                                    }}
                         >{cat}</li>
                     })}

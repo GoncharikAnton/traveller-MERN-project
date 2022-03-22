@@ -3,7 +3,7 @@ import styles from './Footer.module.css'
 import {ContactForm} from "../../Components/ContactForm/ContactForm";
 
 export const Footer = () => {
-    console.log('FOOTER render')
+    // console.log('FOOTER render')
     return (
         <>
             <ContactForm/>

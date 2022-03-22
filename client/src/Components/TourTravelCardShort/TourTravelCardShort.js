@@ -4,8 +4,7 @@ import styles from './TravelCardShort.module.css'
 
 export const TourTravelCardShort = ({tourCategory, tour}) => {
 
-    console.log('rendered')
-
+    // console.log('rendered')
 
 
     return (
@@ -14,13 +13,12 @@ export const TourTravelCardShort = ({tourCategory, tour}) => {
                 <div className="card medium">
                     <div className="card-image">
                         <img src="/img/nature/main.jpg"/>
-                        <span className="card-title">Card Title</span>
-                        <a className="btn-floating halfway-fab waves-effect waves-light cyan"><i
-                            className="material-icons"/></a>
+                            <span className="card-title">{tour.name} --- {tour.category}</span>
+                            <a className="btn-floating halfway-fab waves-effect waves-light cyan"><i
+                                className="material-icons">add</i></a>
                     </div>
                     <div className="card-content">
-                        <p>I am a very simple card. I am good at containing small bits of information. I am convenient
-                            because I require little markup to use effectively.</p>
+                        <p>{tour.description}</p>
                     </div>
                 </div>
             </div>

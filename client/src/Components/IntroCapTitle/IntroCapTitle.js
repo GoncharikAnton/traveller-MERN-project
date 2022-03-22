@@ -3,7 +3,7 @@ import styles from './IntroCapTitle.module.css'
 
 export const IntroCapTitle = ({capTitle}) => {
 
-    console.log('rendered from !!!!!!!!!!!!!!!TITLE!!!!!!!!!')
+    // console.log('rendered from !!!!!!!!!!!!!!!TITLE!!!!!!!!!')
 
 
     return (
