@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 const tourRouter = require('./routes/tourRoutes')
+const tourCategoryRouter = require('./routes/tourCategoryRoutes')
 const path = require("path");
 
 const app = express();
@@ -29,6 +30,7 @@ app.use(express.static(path.join(__dirname, 'static')));
 // 3)ROUTS
 // app.use('/api/v1/users', userRouter);
 app.use('/api/v1/tours', tourRouter);
+app.use('/api/v1/category', tourCategoryRouter);
 
 
 module.exports = app;
