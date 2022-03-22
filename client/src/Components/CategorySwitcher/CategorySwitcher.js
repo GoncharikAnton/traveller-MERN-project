@@ -1,11 +1,11 @@
-import React, {useCallback, useEffect, useMemo, useState} from 'react'
+import React, {memo, useCallback, useEffect, useMemo, useState} from 'react'
 import {Link} from 'react-router-dom'
 import 'materialize-css'
 import './CategorySwitcher.css'
 import {IntroCapTitle} from "../IntroCapTitle/IntroCapTitle";
 import axios from "axios";
 
-export const CategorySwitcher = ({
+export const category_switcher = ({
                                      updateCategory,
                                      activeCategory = null,
                                      rely = 'tours'
@@ -13,6 +13,9 @@ export const CategorySwitcher = ({
 
 
     console.log('rendered from category switcher')
+    // console.log(updateCategory,
+    //     activeCategory,
+    //     rely)
 
     const [categories, setCategories] = useState(null)
     const [error, setError] = useState(null)
@@ -64,3 +67,5 @@ export const CategorySwitcher = ({
 
     )
 }
+
+export const CategorySwitcher = memo(category_switcher);

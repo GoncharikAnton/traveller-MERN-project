@@ -27,6 +27,10 @@ export const AllToursPage = () => {
         return () => {}
     }, [])
 
+    const updateCategory = useCallback((category) => {
+      setCategory(category)
+    }, [])
+
 
     return (
         <>
@@ -35,7 +39,7 @@ export const AllToursPage = () => {
                 'If you need to consult, call us or write on e-mail!'} to={'/contacts'} buttonDescription={'Contact us!'}
             />
             <div className={'container'}>
-                <CategorySwitcher updateCategory={setCategory} activeCategory={category}/>
+                <CategorySwitcher updateCategory={updateCategory} activeCategory={category}/>
                 {!tours && <Loader/>}
                 {!category && tours.map((tour) => {
                     return <TourTravelCardLong key={tour._id} tour={tour}/>

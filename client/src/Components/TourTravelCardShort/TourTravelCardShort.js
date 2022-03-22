@@ -1,10 +1,9 @@
-import React, {useEffect} from 'react';
+import React, {memo, useEffect} from 'react';
 import styles from './TravelCardShort.module.css'
 
 
-export const TourTravelCardShort = ({tourCategory, tour}) => {
-
-    // console.log('rendered')
+export const tour_travel_card_short = ({tourCategory, tour}) => {
+    console.log('rendered')
 
 
     return (
@@ -25,3 +24,5 @@ export const TourTravelCardShort = ({tourCategory, tour}) => {
         </div>
     )
 }
+
+export const TourTravelCardShort = React.memo(tour_travel_card_short)

@@ -33,6 +33,9 @@ export const HomePage = () => {
         }
     }, [tourCategory])
 
+    const updateCategory = useCallback((category) => {
+        setTourCategory(category);
+    }, []);
 
     useEffect(() => {
         data()
@@ -63,12 +66,12 @@ export const HomePage = () => {
                     </div>
 
 
-                    <CategorySwitcher updateCategory={setTourCategory} activeCategory={tourCategory}
+                    <CategorySwitcher updateCategory={updateCategory} activeCategory={tourCategory}
                                       rely={'tours'}/>
                     <div className={styles.shortCards}>
 
                         {tours.map((tour, i) => {
-                            return <TourTravelCardShort updateTourCategory={setTourCategory} key={i}
+                            return <TourTravelCardShort updateTourCategory={updateCategory} key={i}
                                                         tour={tour}/>
                         })}
 
