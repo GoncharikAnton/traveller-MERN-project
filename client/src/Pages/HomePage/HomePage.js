@@ -1,4 +1,3 @@
-// import 'materialize-css';
 import React, {useCallback, useEffect, useRef, useState} from "react";
 import {Header} from "../../Layouts/Header/Header";
 import {CategorySwitcher} from "../../Components/CategorySwitcher/CategorySwitcher";
@@ -10,11 +9,21 @@ import axios from "axios";
 import {IntroCapTitle} from "../../Components/IntroCapTitle/IntroCapTitle";
 import {Loader} from "../../Components/Loader/Loader";
 import {HeaderMainDescription} from "../../Components/HeaderMainDescription/HeaderMainDescription";
+import {Button} from "../../Components/Button/Button";
 
 
 
-export const HomePage = ({props}) => {
-    console.log('RENDER HOMEPAGE')
+export const HomePage = () => {
+    const props = {
+        title: 'Welcome to Traveller!',
+        description: 'We are glad to see you on our web-site! \n' +
+            'Here you can share your opinion about all your travels all over the world! And of-course you can take some;)\n' +
+            'Enjoy!',
+        rating: null,
+        author: null,
+        img: null
+    }
+
     const [tours, setTours] = useState([])
     const [toursByCat, setToursByCat] = useState([])
     // const [blogCategory, setBlogCategory] = useState('Travel Advices')
@@ -51,20 +60,6 @@ export const HomePage = ({props}) => {
         return () => {}
     }, [tourCategory])
 
-    // const updateBlogCategory = (blogCategory) => {
-    //     setBlogCategory({category: blogCategory})
-    // }
-
-    // const updateTourCategory = useCallback(() => {
-    //     setTourCategory(tourCategory)
-    //     console.log(tourCategory)
-    // }, [tourCategory])
-
-    // const updateTourCategory = (category) => {
-    //     tourCategory.current = category
-    //     console.log(tourCategory)
-    // }
-
 
     if(tours.length){
         return (
@@ -96,6 +91,7 @@ export const HomePage = ({props}) => {
                         {/*    index < 3 ? <TourTravelCardShort category={tourCategory} tour={tour}/> : undefined*/}
                         {/*})}*/}
                     </div>
+                    <Button to={'/tours'} description={'See more our tours'}/>
 
                     <CategorySwitcher tours={tours} updateCategory={setTourCategory} activeCategory={tourCategory}/>
                     <div className={styles.shortCards}>
@@ -110,7 +106,6 @@ export const HomePage = ({props}) => {
                     </div>
 
                 </div>
-                <Footer/>
             </div>
         );
     }

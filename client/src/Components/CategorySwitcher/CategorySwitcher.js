@@ -4,7 +4,7 @@ import 'materialize-css'
 import './CategorySwitcher.css'
 import {IntroCapTitle} from "../IntroCapTitle/IntroCapTitle";
 
-export const CategorySwitcher = ({tours = null, blogs = null, updateCategory, activeCategory}) => {
+export const CategorySwitcher = ({tours = null, blogs = null, updateCategory, activeCategory = 'Forest'}) => {
 
     // console.log('rendered from category switcher')
 
@@ -27,7 +27,7 @@ export const CategorySwitcher = ({tours = null, blogs = null, updateCategory, ac
 
     const active_link = 'waves-effect active cyan';
     const passive_link = 'waves-effect';
-    const capTitle = tours ? 'Our tours' : "Traveller's Blog"
+    const capTitle = tours ? 'Our tours' : "Traveller's Blogs"
     return (
         <>
             <IntroCapTitle capTitle={capTitle}/>

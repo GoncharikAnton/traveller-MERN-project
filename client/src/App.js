@@ -8,6 +8,8 @@ import {HomePage} from "./Pages/HomePage/HomePage";
 import {Footer} from "./Layouts/Footer/Footer";
 
 function App() {
+    const routes = useRoutes()
+
     const prop = {
         title: 'Welcome to Traveller!',
         description: 'We are glad to see you on our web-site! \n' +
@@ -21,7 +23,7 @@ function App() {
         <BrowserRouter>
             <div className="App">
                 <Header/>
-                <HomePage props={prop}/>
+                {routes}
                 <Footer/>
             </div>
         </BrowserRouter>

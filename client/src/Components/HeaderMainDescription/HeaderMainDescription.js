@@ -3,7 +3,7 @@ import {Button} from "../Button/Button";
 import './HeaderMainDescription.css'
 
 export const HeaderMainDescription = ({props}) => {
-    console.log("HERO render")
+    // console.log("HERO render")
     const style = {backgroundImage: 'url('+`${!props.author ? '/img/nature/main.png' : props.img}`+ ')'}
     return(
         <div className={'HeaderMainDescription container'}
