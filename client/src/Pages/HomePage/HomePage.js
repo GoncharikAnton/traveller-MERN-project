@@ -1,12 +1,9 @@
 import React, {useCallback, useEffect, useRef, useState} from "react";
-import {Header} from "../../Layouts/Header/Header";
 import {CategorySwitcher} from "../../Components/CategorySwitcher/CategorySwitcher";
-import {Footer} from "../../Layouts/Footer/Footer";
 import {IntroCard} from "../../Components/IntroCard/IntroCard";
 import styles from './HomePage.module.css'
 import {TourTravelCardShort} from "../../Components/TourTravelCardShort/TourTravelCardShort";
 import axios from "axios";
-import {IntroCapTitle} from "../../Components/IntroCapTitle/IntroCapTitle";
 import {Loader} from "../../Components/Loader/Loader";
 import {HeaderMainDescription} from "../../Components/HeaderMainDescription/HeaderMainDescription";
 import {Button} from "../../Components/Button/Button";

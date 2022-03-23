@@ -1,8 +1,6 @@
 import React, {useCallback, useEffect, useState} from "react";
-
 import styles from "./AllToursPage.module.css"
 import {Loader} from "../../Components/Loader/Loader";
-import axios from "axios";
 import {HeaderMainDescription} from "../../Components/HeaderMainDescription/HeaderMainDescription";
 import {CategorySwitcher} from "../../Components/CategorySwitcher/CategorySwitcher";
 import {getTours} from "../../DataMining/getTours";
