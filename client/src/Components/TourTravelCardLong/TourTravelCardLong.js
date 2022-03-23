@@ -13,7 +13,7 @@ export const TourTravelCardLong = ({tour}) => {
             </div>
             <div className="card-content">
                 <p>{tour.description}</p>
-                <Button to={'/'} description={'Read more...'}/>
+                <Button to={`/tours/${tour._id}`} description={'Read more...'}/>
             </div>
 
         </div>

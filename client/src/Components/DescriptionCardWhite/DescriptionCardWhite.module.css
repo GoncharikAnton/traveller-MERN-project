@@ -1,0 +1,24 @@
+.img {
+  width: 100%;
+  border: 3px solid #00bcd4;
+}
+
+.container_text {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.container_text__text {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.container_text__text span {
+  height: 100% !important;
+  text-align: center;
+}
+
+/*# sourceMappingURL=DescriptionCardWhite.module.css.map */

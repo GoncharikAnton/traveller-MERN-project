@@ -17,4 +17,8 @@
   width: 80%;
 }
 
+.HeaderMainDescription:after {
+  linear-gradient: black;
+}
+
 /*# sourceMappingURL=HeaderMainDescription.css.map */

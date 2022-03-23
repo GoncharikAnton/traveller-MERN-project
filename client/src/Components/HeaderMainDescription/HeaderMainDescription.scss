@@ -10,6 +10,7 @@
   justify-content: center;
 
 
+
   ul{
     margin: 230px auto;
 
@@ -19,5 +20,9 @@
     }
 
   }
+
+}
+.HeaderMainDescription:after{
+  linear-gradient: rgba(0,0,0,1);
 
 }
