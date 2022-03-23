@@ -1,13 +1,23 @@
 import axios from "axios";
 
 
-export const getTours = async (category = null) => {              //  +++++++ getToursByCategory
+export const getTours = async (category = null, id = null) => {              //  +++++++ getToursByCategory
     let data = [];
+    let request = ''
+    console.log(category, id)
+    switch (category, id){
+        case !!category:
+            request = `?category=${category}`
+            return
+        case !!id:
+            request = `/${id}`
+            return
+        default:
+            request = ''
+    }
     try {
-        const response = !category ? await axios.get(`/api/v1/tours`, {}) :
-            await axios.get(`/api/v1/tours?category=${category}`, {})
+        const response = await axios.get(`/api/v1/tours`, {})
         data = await response.data
-
     } catch (e) {
         console.log(e)
     }

@@ -3,6 +3,7 @@ import {Route, Routes, Navigate} from "react-router-dom";
 import {HomePage} from "../Pages/HomePage/HomePage";
 import {AllToursPage} from "../Pages/AllToursPage/AllToursPage";
 import {AboutUsPage} from "../Pages/AboutUsPage/AboutUsPage";
+import {TourDetailPage} from "../Pages/TourDetailPage/TourDetailPage";
 
 
 const props = {
@@ -50,6 +51,9 @@ export const useRoutes = isAuthenticated => {
             <Route path={'/login_register'} exact element={<HomePage/>}/>
 
             <Route path={'/about_us'} exact element={<AboutUsPage/>}/>
+
+            <Route path={'/tours/:id'} element={<TourDetailPage/>}/>
+
 
             <Route
                 path="*"

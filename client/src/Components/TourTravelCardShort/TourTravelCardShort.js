@@ -1,5 +1,6 @@
 import React, {memo, useEffect} from 'react';
 import styles from './TravelCardShort.module.css'
+import {Button} from "../Button/Button";
 
 
 export const tour_travel_card_short = ({tourCategory, tour}) => {
@@ -19,6 +20,7 @@ export const tour_travel_card_short = ({tourCategory, tour}) => {
                     <div className="card-content">
                         <p>{tour.description}</p>
                     </div>
+                    <Button to={`/tours/${tour._id}`} description={'Read more'}/>
                 </div>
             </div>
         </div>
