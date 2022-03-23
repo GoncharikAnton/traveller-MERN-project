@@ -2,6 +2,7 @@ import React from "react";
 import {Route, Routes, Navigate} from "react-router-dom";
 import {HomePage} from "../Pages/HomePage/HomePage";
 import {AllToursPage} from "../Pages/AllToursPage/AllToursPage";
+import {AboutUsPage} from "../Pages/AboutUsPage/AboutUsPage";
 
 
 const props = {
@@ -22,9 +23,9 @@ export const useRoutes = isAuthenticated => {
 
                 <Route path={'/tours'} exact element={<AllToursPage/>}/>
 
-                <Route path={'/blogs'} exact element={<HomePage/>}/>
+                <Route path={'/blogs'} exact element={<AllToursPage/>}/>
 
-                <Route path={'/about_us'} exact element={<HomePage/>}/>
+                <Route path={'/about_us'} exact element={<AboutUsPage/>}/>
 
                 <Route path={'/contacts'} exact element={<HomePage/>}/>
 
@@ -44,7 +45,11 @@ export const useRoutes = isAuthenticated => {
 
             <Route path={'/tours'} exact element={<AllToursPage/>}/>
 
+            <Route path={'/blogs'} exact element={<AllToursPage/>}/>
+
             <Route path={'/login_register'} exact element={<HomePage/>}/>
+
+            <Route path={'/about_us'} exact element={<AboutUsPage/>}/>
 
             <Route
                 path="*"

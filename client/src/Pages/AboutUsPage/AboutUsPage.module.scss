@@ -1,0 +1,23 @@
+.img{
+  width: calc(100%);
+  border:  3px solid #00bcd4;
+}
+.container_text{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+}
+
+.container_text__text{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  span{
+    //line-height: calc(100% * 3)!important;
+    height: 100%!important;
+    text-align: center;
+  }
+}

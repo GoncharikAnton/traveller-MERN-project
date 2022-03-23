@@ -1,8 +1,9 @@
 import React from "react";
+import {Button} from "../Button/Button";
 
 export const TourTravelCardLong = ({tour}) => {
 
-    console.log(tour)
+    // console.log('render TOURLONG')
 
     return (
         <div className="card large">
@@ -12,6 +13,7 @@ export const TourTravelCardLong = ({tour}) => {
             </div>
             <div className="card-content">
                 <p>{tour.description}</p>
+                <Button to={'/'} description={'Read more...'}/>
             </div>
 
         </div>

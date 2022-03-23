@@ -45,6 +45,7 @@ export const HomePage = () => {
         return (
             <div>
                 <HeaderMainDescription title={'Welcome to Traveller!'}
+                                       to={'/about_us'}
                 description={'We are glad to see you on our web-site! \n' +
                 'Here you can share your opinion about all your travels all over the world! And of-course you can take some;)\n' +
                 'Enjoy!'}/>

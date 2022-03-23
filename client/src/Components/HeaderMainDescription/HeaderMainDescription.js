@@ -11,7 +11,6 @@ export const HeaderMainDescription = ({title, description, buttonDescription, to
         <div className={'HeaderMainDescription container'}
             style={{
                 backgroundImage: 'url(' + `${!author ? '/img/nature/main.jpg' : img}` + ')',
-
         }}
         >
             <ul>
