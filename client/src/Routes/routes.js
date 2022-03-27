@@ -1,9 +1,12 @@
 import React from "react";
-import {Route, Routes, Navigate} from "react-router-dom";
-import {HomePage} from "../Pages/HomePage/HomePage";
-import {AllToursPage} from "../Pages/AllToursPage/AllToursPage";
-import {AboutUsPage} from "../Pages/AboutUsPage/AboutUsPage";
-import {TourDetailPage} from "../Pages/TourDetailPage/TourDetailPage";
+import {Route, Routes, Navigate, useLocation} from "react-router-dom";
+import HomePage from "../Layouts/Main/HomePage/HomePage";
+import AllToursPage from "../Layouts/Main/AllToursPage/AllToursPage";
+import AboutUsPage from "../Layouts/Main/AboutUsPage/AboutUsPage";
+import TourDetailPage from "../Layouts/Main/TourDetailPage/TourDetailPage";
+import LoginRegister from "../Layouts/Main/LoginRegister/LoginRegister";
+import Header from "../Layouts/Header/Header";
+import Footer from "../Layouts/Footer/Footer";
 
 
 const props = {
@@ -17,20 +20,53 @@ const props = {
 }
 
 export const useRoutes = isAuthenticated => {
+
+    // const location = useLocation()
+    // console.log(location)
+
     if (isAuthenticated) {
         return (
+            <>
+                {/*<Header/>*/}
+                <Routes>
+                    <Route path={'/'} exact element={<HomePage props={props}/>}/>
+
+                    <Route path={'/tours'} exact element={<AllToursPage/>}/>
+
+                    <Route path={'/blogs'} exact element={<AllToursPage/>}/>
+
+                    <Route path={'/about_us'} exact element={<AboutUsPage/>}/>
+
+                    <Route path={'/contacts'} exact element={<HomePage/>}/>
+
+                    <Route path={'/detail/:id'} element={<HomePage/>}/>
+
+
+                    <Route
+                        path="*"
+                        element={<Navigate to="/"/>}
+                    />
+                </Routes>
+                {/*<Footer/>*/}
+            </>
+
+        )
+    }
+    return (
+        <>
+            {/*<Header/>*/}
             <Routes>
-                <Route path={'/'} exact element={<HomePage props={props}/>}/>
+                <Route path={'/'} exact element={<HomePage/>}/>
 
                 <Route path={'/tours'} exact element={<AllToursPage/>}/>
 
                 <Route path={'/blogs'} exact element={<AllToursPage/>}/>
 
+                <Route path={'/login'} exact element={<LoginRegister/>}/>
+
                 <Route path={'/about_us'} exact element={<AboutUsPage/>}/>
 
-                <Route path={'/contacts'} exact element={<HomePage/>}/>
-
-                <Route path={'/detail/:id'} element={<HomePage/>}/>
+                <Route path={'/tours/:id'} element={<TourDetailPage/>}/>
 
 
                 <Route
@@ -38,27 +74,7 @@ export const useRoutes = isAuthenticated => {
                     element={<Navigate to="/"/>}
                 />
             </Routes>
-        )
-    }
-    return (
-        <Routes>
-            <Route path={'/'} exact element={<HomePage/>}/>
-
-            <Route path={'/tours'} exact element={<AllToursPage/>}/>
-
-            <Route path={'/blogs'} exact element={<AllToursPage/>}/>
-
-            <Route path={'/login_register'} exact element={<HomePage/>}/>
-
-            <Route path={'/about_us'} exact element={<AboutUsPage/>}/>
-
-            <Route path={'/tours/:id'} element={<TourDetailPage/>}/>
-
-
-            <Route
-                path="*"
-                element={<Navigate to="/"/>}
-            />
-        </Routes>
+            {/*<Footer/>*/}
+        </>
     )
 }

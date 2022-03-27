@@ -1,12 +1,12 @@
 import React from "react";
-import {Button} from "../Button/Button";
+import Button from "../Button/Button";
 
-export const TourTravelCardLong = ({tour}) => {
+const TourTravelCardLong = ({tour}) => {
 
     // console.log('render TOURLONG')
 
     return (
-        <div className="card large">
+        <div className="card large card-panel hoverable">
             <div className="card-image">
                 <img src="/img/nature/main.jpg"/>
                 <span className="card-title">{tour.name}</span>
@@ -19,3 +19,5 @@ export const TourTravelCardLong = ({tour}) => {
         </div>
     )
 }
+
+export default TourTravelCardLong;

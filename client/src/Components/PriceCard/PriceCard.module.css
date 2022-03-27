@@ -1,0 +1,20 @@
+.PriceCard {
+  display: flex;
+  flex-wrap: wrap;
+  width: calc(33.3333333333% - 30px);
+  margin: 15px;
+  padding: 10px;
+  border: 3px solid #00BCD4;
+  border-radius: 3px;
+  justify-content: center;
+}
+.PriceCard div {
+  display: flex;
+  flex-basis: 100%;
+  justify-content: center;
+}
+.PriceCard div span {
+  text-align: center;
+}
+
+/*# sourceMappingURL=PriceCard.module.css.map */

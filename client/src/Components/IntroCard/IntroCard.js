@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './IntroCard.module.css'
 
-export const IntroCard = ({svg, cardTitle, cardDescription = null}) => {
+const IntroCard = ({svg, cardTitle, cardDescription = null}) => {
 
     return(
         <div className={styles.IntroCard}>
@@ -12,3 +12,5 @@ export const IntroCard = ({svg, cardTitle, cardDescription = null}) => {
     )
 
 }
+
+export default IntroCard;

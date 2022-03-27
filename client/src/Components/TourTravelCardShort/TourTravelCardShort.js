@@ -1,6 +1,6 @@
 import React, {memo, useEffect} from 'react';
-import styles from './TravelCardShort.module.css'
-import {Button} from "../Button/Button";
+import styles from './TourTravelCardShort.module.css'
+import Button from "../Button/Button";
 
 
 export const tour_travel_card_short = ({tourCategory, tour}) => {
@@ -10,7 +10,7 @@ export const tour_travel_card_short = ({tourCategory, tour}) => {
     return (
         <div className={`row ${styles.cards}`}>
             <div className="col s12 m12 l12">
-                <div className="card medium">
+                <div className="card medium hoverable">
                     <div className="card-image">
                         <img src="/img/nature/main.jpg"/>
                             <span className="card-title">{tour.name} --- {tour.category}</span>

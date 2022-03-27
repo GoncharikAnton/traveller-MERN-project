@@ -1,12 +1,14 @@
 import React from 'react'
 import styles from './Footer.module.css'
-import {ContactForm} from "../../Components/ContactForm/ContactForm";
+import ContactForm from "../../Components/ContactForm/ContactForm";
+import Navbar from "../../Components/Navbar/Navbar";
 
-export const Footer = () => {
+const Footer = () => {
     // console.log('FOOTER render')
     return (
         <>
-            <ContactForm/>
+
+            <><ContactForm/>
             <footer className={`${styles.Footer} page-footer cyan `}>
                 <div className="container">
                     <div className="row">
@@ -35,8 +37,10 @@ export const Footer = () => {
                         <a className="black-text text-lighten-4 right" href="#!">More Links</a>
                     </div>
                 </div>
-            </footer>
+            </footer></>
         </>
 
     )
 }
+
+export default Footer;

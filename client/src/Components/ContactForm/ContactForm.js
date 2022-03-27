@@ -1,8 +1,8 @@
 import React from 'react'
 import style from './ContactForm.module.css'
-import {Button} from "../Button/Button";
+import Button from "../Button/Button";
 
-export const ContactForm = () => {
+const ContactForm = () => {
 
     return (
         <div className={`container ${style.ContactForm}`}>
@@ -15,3 +15,5 @@ export const ContactForm = () => {
         </div>
     )
 }
+
+export default ContactForm;

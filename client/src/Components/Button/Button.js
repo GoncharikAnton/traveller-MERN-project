@@ -1,7 +1,7 @@
 import 'materialize-css'
 import {Link} from "react-router-dom";
 
-export const Button = ({description, to = null}) => {
+const Button = ({description, to = null}) => {
     // console.log('render from BUTTON')
     return(
         <>
@@ -9,3 +9,5 @@ export const Button = ({description, to = null}) => {
         </>
     )
 }
+
+export default Button;

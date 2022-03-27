@@ -1,7 +1,10 @@
 import React from 'react';
 import styles from './DropDownMenu.module.css'
 import M from '../../../node_modules/materialize-css/dist/js/materialize.js'
-export const DropDownMenu = () => {
+
+
+
+const DropDownMenu = () => {
 
     document.addEventListener('DOMContentLoaded', function() {
         var elems = document.querySelectorAll('.dropdown-trigger');
@@ -24,3 +27,5 @@ export const DropDownMenu = () => {
 
 )
 }
+
+export default DropDownMenu;

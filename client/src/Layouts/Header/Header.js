@@ -1,12 +1,14 @@
 import React from 'react'
-import {Navbar} from "../../Components/Navbar/Navbar";
-import {HeaderMainDescription} from "../../Components/HeaderMainDescription/HeaderMainDescription";
+import Navbar from "../../Components/Navbar/Navbar";
 
-export const Header = ({props}) => {
-    // console.log('HEADER render')
-    return (
+const Header = () => {
+
+
+        return (
         <header className={'Header'}>
             <Navbar/>
         </header>
     )
 }
+
+export default Header;

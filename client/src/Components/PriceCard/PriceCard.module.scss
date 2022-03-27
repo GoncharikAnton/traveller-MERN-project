@@ -1,0 +1,22 @@
+.PriceCard{
+  display: flex;
+  flex-wrap: wrap;
+  width: calc(100% / 3 - 30px);
+  margin: 15px;
+  padding: 10px;
+  border: 3px solid #00BCD4;
+  border-radius: 3px;
+  justify-content: center;
+
+  div{
+    display: flex;
+    flex-basis: 100%;
+    justify-content: center;
+
+    span{
+      text-align: center;
+    }
+
+  }
+
+}

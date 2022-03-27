@@ -1,12 +1,12 @@
 import React from 'react';
 import styles from './AboutUsPage.module.css'
-import {HeaderMainDescription} from "../../Components/HeaderMainDescription/HeaderMainDescription";
-import {IntroCapTitle} from "../../Components/IntroCapTitle/IntroCapTitle";
-import {DescriptionCardWhite} from "../../Components/DescriptionCardWhite/DescriptionCardWhite";
-import {DescriptionCardCyan} from "../../Components/DescriptionCardCyan/DescriptionCardCyan";
+import HeaderMainDescription from "../../../Components/HeaderMainDescription/HeaderMainDescription";
+import IntroCapTitle from "../../../Components/IntroCapTitle/IntroCapTitle";
+import DescriptionCardWhite from "../../../Components/DescriptionCardWhite/DescriptionCardWhite";
+import DescriptionCardCyan from "../../../Components/DescriptionCardCyan/DescriptionCardCyan";
 
 
-export const AboutUsPage = () => {
+const AboutUsPage = () => {
 
 
     return (
@@ -42,3 +42,5 @@ export const AboutUsPage = () => {
         </>
     )
 }
+
+export default AboutUsPage;

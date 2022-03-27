@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Loader = () => {
+const Loader = () => {
     return (
         <div style={{
             display: 'flex',
@@ -24,3 +24,5 @@ export const Loader = () => {
         </div>
     )
 }
+
+export default Loader;

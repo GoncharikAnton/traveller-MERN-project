@@ -1,33 +1,31 @@
-import React from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import {BrowserRouter} from "react-router-dom";
 import {useRoutes} from "./Routes/routes";
-import {Header} from "./Layouts/Header/Header";
+import {AuthContext} from "./Context/AuthContext";
+import Header from "./Layouts/Header/Header";
+import Footer from "./Layouts/Footer/Footer";
+import {useAuth} from "./Hooks/auth.hook";
+
 import './App.css';
 import 'materialize-css';
-import {HomePage} from "./Pages/HomePage/HomePage";
-import {Footer} from "./Layouts/Footer/Footer";
+import Loader from "./Components/Loader/Loader";
 
 function App() {
-    const routes = useRoutes()
+    const {token, login, logout, userId} = useAuth();
+    const isAuthenticated = !!token;
+    const routes = useRoutes(isAuthenticated)
 
-    const prop = {
-        title: 'Welcome to Traveller!',
-        description: 'We are glad to see you on our web-site! \n' +
-            'Here you can share your opinion about all your travels all over the world! And of-course you can take some;)\n' +
-            'Enjoy!',
-        rating: null,
-        author: null,
-        img: null
-    }
+
     return (
-        <BrowserRouter>
-            <div className="App">
-                <Header/>
-                {routes}
-                <Footer/>
-            </div>
-        </BrowserRouter>
-
+        <AuthContext.Provider value={{token, login,logout, userId, isAuthenticated}}>
+            <BrowserRouter>
+                <div className="App">
+                    <Header/>
+                    {routes || <Loader/>}
+                    <Footer/>
+                </div>
+            </BrowserRouter>
+        </AuthContext.Provider>
     );
 }
 

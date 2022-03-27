@@ -1,9 +1,9 @@
 import React from 'react'
-import {Button} from "../Button/Button";
+import Button from "../Button/Button";
 import './HeaderMainDescription.css'
 import {starCalculator} from "../../DataMining/shortScripts/shortDescriptionCalc";
 
-export const HeaderMainDescription = ({title, button = true, description, buttonDescription, to = null, rating= null,
+const HeaderMainDescription = ({title, button = true, description, buttonDescription, to = null, rating= null,
                                           author= null,
                                           img= null }) => {
     // console.log("HERO render")
@@ -30,3 +30,5 @@ export const HeaderMainDescription = ({title, button = true, description, button
         </div>
     )
 }
+
+export default HeaderMainDescription;

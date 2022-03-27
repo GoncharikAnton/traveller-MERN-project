@@ -2,10 +2,10 @@ import React, {memo, useCallback, useEffect, useMemo, useState} from 'react'
 import {Link} from 'react-router-dom'
 import 'materialize-css'
 import './CategorySwitcher.css'
-import {IntroCapTitle} from "../IntroCapTitle/IntroCapTitle";
+import IntroCapTitle from "../IntroCapTitle/IntroCapTitle";
 import axios from "axios";
 
-export const category_switcher = ({
+const Category_switcher = ({
                                      updateCategory,
                                      activeCategory = null,
                                      rely = 'tours'
@@ -52,7 +52,7 @@ export const category_switcher = ({
                     {/*<li className="waves-effect active cyan"><a>{blogs.cat1.title}</a></li> //////////////*/}
                     {categories && categories.map((cat, ind) => {
                         return <li className={`${activeCategory === cat.name ? active_link :
-                            passive_link}`}
+                            passive_link}  hoverable`}
                                    key={cat._id}
                                    category={cat.name}
                                    onClick={(e) => {
@@ -68,4 +68,4 @@ export const category_switcher = ({
     )
 }
 
-export const CategorySwitcher = memo(category_switcher);
+export const CategorySwitcher = memo(Category_switcher);

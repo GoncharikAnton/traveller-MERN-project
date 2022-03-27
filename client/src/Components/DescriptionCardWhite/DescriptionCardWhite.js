@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './DescriptionCardWhite.module.css';
 
-export const DescriptionCardWhite = ({span_text, img}) => {
+const DescriptionCardWhite = ({span_text, img}) => {
 
 
     return(
@@ -18,3 +18,5 @@ export const DescriptionCardWhite = ({span_text, img}) => {
         </>
     )
 }
+
+export default DescriptionCardWhite;

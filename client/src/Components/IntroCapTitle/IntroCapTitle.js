@@ -1,10 +1,9 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import styles from './IntroCapTitle.module.css'
 
-export const IntroCapTitle = ({capTitle}) => {
+const IntroCapTitle = ({capTitle}) => {
 
     // console.log('rendered from !!!!!!!!!!!!!!!TITLE!!!!!!!!!')
-
 
     return (
         <div className={`${styles.IntroCapTitle}`}>
@@ -12,3 +11,5 @@ export const IntroCapTitle = ({capTitle}) => {
         </div>
     )
 }
+
+export default IntroCapTitle;

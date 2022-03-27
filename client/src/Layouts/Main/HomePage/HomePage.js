@@ -1,15 +1,15 @@
 import React, {useCallback, useEffect, useRef, useState} from "react";
-import {CategorySwitcher} from "../../Components/CategorySwitcher/CategorySwitcher";
-import {IntroCard} from "../../Components/IntroCard/IntroCard";
+import {CategorySwitcher} from "../../../Components/CategorySwitcher/CategorySwitcher";
+import IntroCard from "../../../Components/IntroCard/IntroCard";
 import styles from './HomePage.module.css'
-import {TourTravelCardShort} from "../../Components/TourTravelCardShort/TourTravelCardShort";
+import {TourTravelCardShort} from "../../../Components/TourTravelCardShort/TourTravelCardShort";
 import axios from "axios";
-import {Loader} from "../../Components/Loader/Loader";
-import {HeaderMainDescription} from "../../Components/HeaderMainDescription/HeaderMainDescription";
-import {Button} from "../../Components/Button/Button";
+import Loader from "../../../Components/Loader/Loader";
+import HeaderMainDescription from "../../../Components/HeaderMainDescription/HeaderMainDescription";
+import Button from "../../../Components/Button/Button";
 
 
-export const HomePage = () => {
+const HomePage = () => {
 
     const [tours, setTours] = useState([])
     // const [blogCategory, setBlogCategory] = useState('Travel Advices')
@@ -88,3 +88,5 @@ export const HomePage = () => {
             </>
     )
 }
+
+export default HomePage;
