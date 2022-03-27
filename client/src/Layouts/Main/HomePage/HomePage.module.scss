@@ -3,3 +3,16 @@
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
+.shortCards{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 25px auto;
+  //justify-content: space-around;
+}
+
+.btn{
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+}

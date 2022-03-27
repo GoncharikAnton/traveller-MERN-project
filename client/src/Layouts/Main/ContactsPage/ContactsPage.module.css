@@ -1,0 +1,23 @@
+.contactsDiv {
+  display: flex;
+  margin: 30px auto;
+  border: 3px solid #00BCD4;
+  border-radius: 3px;
+  flex-wrap: wrap;
+}
+.contactsDiv .imgDiv {
+  margin: 20px 10px;
+}
+.contactsDiv .imgDiv img {
+  width: 400px;
+}
+.contactsDiv .spanDiv {
+  margin: 20px 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.contactsDiv .spanDiv span {
+  width: 100%;
+}
+
+/*# sourceMappingURL=ContactsPage.module.css.map */

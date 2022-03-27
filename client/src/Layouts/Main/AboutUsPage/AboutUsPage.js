@@ -29,7 +29,7 @@ const AboutUsPage = () => {
                     span_text={'I have also presented & spoken on expert panels at the Canadian Media Producers Association, Google, VidCon, Buffer Festival and the Travel & Adventure Show. Co-MC’d the International Luxury Hoteliers Conference, plus was a keynote speaker at the 2016 Women in Travel Summit.\n' +
                         '                                In December 2014 I was invited as one of the Top 130 of the most inﬂuential travel bloggers and digital media outlets to the White House to attend the White House Travel Blogger Summit on Study Abroad and Global Citizenship.\n' +
                         '                            My passion for travel and love for comedy is contagious and I love sharing the destinations I visit in fun and funny videos and blog posts that teach and inspire others to follow their travel dreams!'}
-                    to={'/img/nature/main.jpg'}
+                    img={'/img/nature/main.jpg'}
                 />
                 <DescriptionCardWhite
                     span_text={'Hello!  I’m Nadine Sykora and I’m one of the top travel vloggers on YouTube who travels the world and shares my experiences and travel expertise through my videos and on Instagram.\n' +

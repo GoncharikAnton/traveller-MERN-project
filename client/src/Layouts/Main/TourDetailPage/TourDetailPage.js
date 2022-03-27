@@ -50,13 +50,13 @@ const TourDetailPage = () => {
                                        rating={tour.ratingsAverage}
                 />
                 <div className={'container'}>
+                    <IntroCapTitle capTitle={tour.name}/>
                     <div className={styles.IntroCards_div}>
                         <IntroCard svg={'/img/svg/difficulty_graph.svg'} cardTitle={`Difficulty | ${tour.difficulty}`}/>
                         <IntroCard svg={'/img/svg/duration.svg'} cardTitle={`Duration | ${tour.duration} days`}/>
                         <IntroCard svg={'/img/svg/rating_star.svg'} cardTitle={`Rating | ${tour.ratingsAverage} points`}/>
                         <IntroCard svg={'/img/svg/calendar.svg'} cardTitle={`Start | ${date.toDateString()}`}/>
                     </div>
-                    <IntroCapTitle capTitle={tour.name}/>
                     <DescriptionCardWhite span_text={descThreePart[0]} img={'/img/nature/tour-2-1.jpg'}/>
                     <DescriptionCardCyan span_text={descThreePart[1]} img={'/img/nature/tour-2-2.jpg'}/>
                     <DescriptionCardWhite span_text={descThreePart[2]} img={'/img/nature/tour-2-3.jpg'}/>

@@ -5,6 +5,7 @@
   "dependencies": {
     "@iconify/icons-mdi": "^1.2.3",
     "@iconify/react": "^3.2.0",
+    "@rooks/use-did-mount": "^4.11.2",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",

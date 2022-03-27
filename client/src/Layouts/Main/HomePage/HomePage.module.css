@@ -4,4 +4,16 @@
   justify-content: space-around;
 }
 
+.shortCards {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 25px auto;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+}
+
 /*# sourceMappingURL=HomePage.module.css.map */

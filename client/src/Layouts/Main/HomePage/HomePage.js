@@ -1,4 +1,5 @@
 import React, {useCallback, useEffect, useRef, useState} from "react";
+import useDidMount from "@rooks/use-did-mount"
 import {CategorySwitcher} from "../../../Components/CategorySwitcher/CategorySwitcher";
 import IntroCard from "../../../Components/IntroCard/IntroCard";
 import styles from './HomePage.module.css'
@@ -10,6 +11,10 @@ import Button from "../../../Components/Button/Button";
 
 
 const HomePage = () => {
+
+    useDidMount(function(){
+        console.log("mounted")
+    });
 
     const [tours, setTours] = useState([])
     // const [blogCategory, setBlogCategory] = useState('Travel Advices')
@@ -66,15 +71,19 @@ const HomePage = () => {
 
                     <CategorySwitcher updateCategory={updateCategory} activeCategory={tourCategory}
                                       rely={'tours'}/>
-                    <div className={styles.shortCards}>
-
+                    {/*<div className={styles.shortCards}>*/}
+                    <div className={`row ${styles.shortCards}`}>
                         {tours.map((tour, i) => {
                             return <TourTravelCardShort updateTourCategory={updateCategory} key={i}
                                                         tour={tour}/>
                         })}
-
                     </div>
-                    <Button to={'/tours'} description={'See more our tours'}/>
+
+
+                    {/*</div>*/}
+                    <div className={styles.btn}>
+                        <Button to={'/tours'} description={'See more our tours'}/>
+                    </div>
 
                 </div>
             </div>

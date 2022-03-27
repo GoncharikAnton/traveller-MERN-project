@@ -7,17 +7,10 @@ import TourDetailPage from "../Layouts/Main/TourDetailPage/TourDetailPage";
 import LoginRegister from "../Layouts/Main/LoginRegister/LoginRegister";
 import Header from "../Layouts/Header/Header";
 import Footer from "../Layouts/Footer/Footer";
+import ContactsPage from "../Layouts/Main/ContactsPage/ContactsPage";
+import CreateTourPage from "../Layouts/Main/CreateTourPage/CreateTourPage";
 
 
-const props = {
-    title: 'Welcome to Traveller!',
-    description: 'We are glad to see you on our web-site! \n' +
-        'Here you can share your opinion about all your travels all over the world! And of-course you can take some;)\n' +
-        'Enjoy!',
-    rating: null,
-    author: null,
-    img: null
-}
 
 export const useRoutes = isAuthenticated => {
 
@@ -29,18 +22,19 @@ export const useRoutes = isAuthenticated => {
             <>
                 {/*<Header/>*/}
                 <Routes>
-                    <Route path={'/'} exact element={<HomePage props={props}/>}/>
+                    <Route path={'/'} exact element={<HomePage/>}/>
 
                     <Route path={'/tours'} exact element={<AllToursPage/>}/>
 
                     <Route path={'/blogs'} exact element={<AllToursPage/>}/>
 
-                    <Route path={'/about_us'} exact element={<AboutUsPage/>}/>
+                    <Route path={'/create_tour'} exact element={<CreateTourPage/>}/>
 
-                    <Route path={'/contacts'} exact element={<HomePage/>}/>
+                    <Route path={'/about_us'} exact element={<AboutUsPage/>}/>
 
                     <Route path={'/detail/:id'} element={<HomePage/>}/>
 
+                    <Route path={'/contacts'} element={<ContactsPage/>}/>
 
                     <Route
                         path="*"
@@ -67,6 +61,8 @@ export const useRoutes = isAuthenticated => {
                 <Route path={'/about_us'} exact element={<AboutUsPage/>}/>
 
                 <Route path={'/tours/:id'} element={<TourDetailPage/>}/>
+
+                <Route path={'/contacts'} element={<ContactsPage/>}/>
 
 
                 <Route

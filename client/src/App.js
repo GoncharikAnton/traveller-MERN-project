@@ -11,13 +11,13 @@ import 'materialize-css';
 import Loader from "./Components/Loader/Loader";
 
 function App() {
-    const {token, login, logout, userId} = useAuth();
+    const {token, login, logout, userId, role} = useAuth();
     const isAuthenticated = !!token;
     const routes = useRoutes(isAuthenticated)
 
 
     return (
-        <AuthContext.Provider value={{token, login,logout, userId, isAuthenticated}}>
+        <AuthContext.Provider value={{token, login,logout, userId, isAuthenticated, role}}>
             <BrowserRouter>
                 <div className="App">
                     <Header/>

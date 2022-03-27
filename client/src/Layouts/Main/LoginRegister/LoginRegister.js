@@ -24,7 +24,7 @@ const LoginRegister = () => {
     const loginHandler = async () => {
         try {
             const response = await axios.post('/api/v1/users/login', {...form})
-            auth.login(response.data.token, response.data.data.user._id)
+            auth.login(response.data.token, response.data.data.user._id, response.data.data.user.role)
             // console.log('Data', response)
 
         } catch (e) {
