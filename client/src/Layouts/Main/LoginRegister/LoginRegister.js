@@ -2,7 +2,7 @@ import React, {useContext, useEffect, useState} from 'react'
 import {AuthContext} from "../../../Context/AuthContext";
 
 import styles from './LoginRegister.module.css'
-import {Header} from "../../Header/Header";
+import Header from "../../Header/Header";
 import axios from "axios";
 
 const LoginRegister = () => {

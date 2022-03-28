@@ -2,17 +2,17 @@ import React, {memo, useCallback, useEffect, useMemo, useState} from 'react'
 import {Link} from 'react-router-dom'
 import 'materialize-css'
 import './CategorySwitcher.css'
-import IntroCapTitle from "../IntroCapTitle/IntroCapTitle";
+import {IntroCapTitle} from "../IntroCapTitle/IntroCapTitle";
 import axios from "axios";
 
 const Category_switcher = ({
-                                     updateCategory,
-                                     activeCategory = null,
-                                     rely = 'tours'
-                                 }) => {
+                               updateCategory,
+                               activeCategory = null,
+                               rely = 'tours'
+                           }) => {
 
 
-    console.log('rendered from category switcher')
+    // console.log('rendered from category switcher')
     // console.log(updateCategory,
     //     activeCategory,
     //     rely)

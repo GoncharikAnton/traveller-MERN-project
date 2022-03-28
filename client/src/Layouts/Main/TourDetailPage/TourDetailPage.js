@@ -3,7 +3,7 @@ import HeaderMainDescription from "../../../Components/HeaderMainDescription/Hea
 import {getTours} from "../../../DataMining/getTours";
 import Loader from "../../../Components/Loader/Loader";
 import {shortDescriptionCalc, threePartDescription} from "../../../DataMining/shortScripts/shortDescriptionCalc";
-import IntroCapTitle from "../../../Components/IntroCapTitle/IntroCapTitle";
+import {IntroCapTitle} from "../../../Components/IntroCapTitle/IntroCapTitle";
 import DescriptionCardWhite from "../../../Components/DescriptionCardWhite/DescriptionCardWhite";
 import DescriptionCardCyan from "../../../Components/DescriptionCardCyan/DescriptionCardCyan";
 import Map from "../../../Components/Map/Map";

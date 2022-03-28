@@ -1,6 +1,8 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 
-const TextInput = ({placeholder, setData = null, id, name, type = 'text', label}) => {
+const Text_Input = ({placeholder, setData = null, id, name, type = 'text', label, data = null}) => {
+
+    // const [value, setValue] = useState(null)
 
     useEffect(() => {
         window.M.updateTextFields()
@@ -10,7 +12,11 @@ const TextInput = ({placeholder, setData = null, id, name, type = 'text', label}
         <>
             <div className="row">
                 <div className="input-field col s12 m12 l12">
-                    <input value="" id={id} name={name} type="text" className="validate" placeholder={placeholder}/>
+                    <input onChange={(e) => {
+                        // setValue(e.target.value)
+                        setData({...data, [e.target.name] : e.target.value})
+                    }}
+                        defaultValue={''} id={id} name={name} type={type} className="validate" placeholder={placeholder}/>
                         <label className="active" htmlFor={id}>{label}</label>
                 </div>
             </div>
@@ -18,4 +24,4 @@ const TextInput = ({placeholder, setData = null, id, name, type = 'text', label}
     )
 }
 
-export default TextInput;
+export const TextInput = React.memo(Text_Input);

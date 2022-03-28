@@ -1,6 +1,6 @@
 import React from 'react';
 import HeaderMainDescription from "../../../Components/HeaderMainDescription/HeaderMainDescription";
-import IntroCapTitle from "../../../Components/IntroCapTitle/IntroCapTitle";
+import {IntroCapTitle} from "../../../Components/IntroCapTitle/IntroCapTitle";
 import Map from "../../../Components/Map/Map";
 
 import styles from "./ContactsPage.module.css"

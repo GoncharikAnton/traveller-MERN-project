@@ -35,11 +35,11 @@ const Navbar = () => {
                             <li><Link to="/about_us">About Us</Link></li>
                             <li><Link to="/contacts">Contacts</Link></li>
                             {auth.isAuthenticated && auth.role === 'user' ? <li><Link to="/">Create post</Link></li> :
-                                <li><Link to="/create_tour">Create tour</Link></li>}
+                                auth.isAuthenticated && auth.role === 'admin' && <li><Link to="/create_tour">Create tour</Link></li>}
                             {auth.isAuthenticated && auth.role === 'user' ? <li><Link to="/">Delete post</Link></li> :
-                                <li><Link to="/">Delete tour</Link></li>}
-                            {auth.isAuthenticated && <li><Link to="/">Profile</Link></li>}
-                            {auth.isAuthenticated && <li><Link to="/cart">Cart</Link></li>}
+                                auth.isAuthenticated && auth.role === 'admin' && <li><Link to="/">Delete tour</Link></li>}
+                            {auth.isAuthenticated && auth.role === 'user' && <li><Link to="/">Profile</Link></li>}
+                            {auth.isAuthenticated && auth.role === 'user' && <li><Link to="/cart">Cart</Link></li>}
                             {auth.isAuthenticated ? <li><Link to="/" onClick={logoutHandler}>Logout</Link></li> :
                                 <li><Link to="/login">Login/Register</Link></li>}
                         </ul>
@@ -51,11 +51,11 @@ const Navbar = () => {
                         <li><Link to="/about_us">About Us</Link></li>
                         <li><Link to="/contacts">Contacts</Link></li>
                         {auth.isAuthenticated && auth.role === 'user' ? <li><Link to="/">Create post</Link></li> :
-                            <li><Link to="/create_tour">Create tour</Link></li>}
+                            auth.isAuthenticated && auth.role === 'admin' && <li><Link to="/create_tour">Create tour</Link></li>}
                         {auth.isAuthenticated && auth.role === 'user' ? <li><Link to="/">Delete post</Link></li> :
-                            <li><Link to="/">Delete tour</Link></li>}
-                        {auth.isAuthenticated && <li><Link to="/">Profile</Link></li>}
-                        {auth.isAuthenticated && <li><Link to="/cart">Cart</Link></li>}
+                            auth.isAuthenticated && auth.role === 'admin' && <li><Link to="/">Delete tour</Link></li>}
+                        {auth.isAuthenticated && auth.role === 'user' && <li><Link to="/">Profile</Link></li>}
+                        {auth.isAuthenticated && auth.role === 'user' && <li><Link to="/cart">Cart</Link></li>}
                         {auth.isAuthenticated ? <li><Link to="/" onClick={logoutHandler}>Logout</Link></li> :
                             <li><Link to="/login">Login/Register</Link></li>}
                     </ul>

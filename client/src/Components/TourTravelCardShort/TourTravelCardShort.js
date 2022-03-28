@@ -4,7 +4,7 @@ import Button from "../Button/Button";
 import {shortDescriptionCalc} from '../../DataMining/shortScripts/shortDescriptionCalc'
 
 export const tour_travel_card_short = ({tourCategory, tour}) => {
-    console.log('rendered')
+    // console.log('rendered')
 
     const shortDescription = shortDescriptionCalc(tour.description)
 

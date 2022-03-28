@@ -15,7 +15,8 @@ export const useAuth = () => {
 
         localStorage.setItem(storageName, JSON.stringify({
             userId: id,
-            token: jwtToken
+            token: jwtToken,
+            role: role
         }))
     }, [])
 
@@ -29,7 +30,7 @@ export const useAuth = () => {
     useEffect(() => {
         const data = JSON.parse(localStorage.getItem(storageName))
         if (data && data.token) {
-            login(data.token, data.userId)
+            login(data.token, data.userId, data.role)
         }
         setReady(true)
     }, [login])
