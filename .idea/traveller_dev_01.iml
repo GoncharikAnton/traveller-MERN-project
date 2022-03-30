@@ -5,8 +5,8 @@
       <excludeFolder url="file://$MODULE_DIR$/temp" />
       <excludeFolder url="file://$MODULE_DIR$/.tmp" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
-      <excludeFolder url="file://$MODULE_DIR$/client/src/Components/QuantityForm" />
-      <excludeFolder url="file://$MODULE_DIR$/client/src/Components/BlogTravelCardShort" />
+      <excludeFolder url="file://$MODULE_DIR$/client/src/components/BlogTravelCardShort" />
+      <excludeFolder url="file://$MODULE_DIR$/client/src/components/QuantityForm" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

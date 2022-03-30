@@ -1,0 +1,13 @@
+.Footer h5 {
+  color: black !important;
+}
+.Footer .logo {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+.Footer .logo img {
+  margin: 0 10px 0 0;
+}
+
+/*# sourceMappingURL=footer.module.css.map */

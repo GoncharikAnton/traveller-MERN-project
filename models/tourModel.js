@@ -22,7 +22,8 @@ const tourSchema = new mongoose.Schema({
     categoryRelate: [
         {
         type: mongoose.Schema.ObjectId,
-        ref: 'TourCategory'
+        ref: 'TourCategory',
+        required: [false]
     }
     ],
     category: {
@@ -62,7 +63,13 @@ const tourSchema = new mongoose.Schema({
         default: Date.now(),
         select: false
     },
-    startDates: [Date]
+    startDates: [Date],
+    coordinates: {
+        type: String,
+        required: [true, 'A tour must have coordinates']
+    }
+
+
 
 });
 
