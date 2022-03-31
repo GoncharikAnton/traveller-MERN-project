@@ -12,7 +12,7 @@ import Button from "../../../components/Button/Button";
 
 const HomePage = () => {
 
-    useDidMount(function(){
+    useDidMount(function () {
         console.log("mounted")
     });
 
@@ -28,7 +28,7 @@ const HomePage = () => {
             const data = response.data
             await setTours([...data.data.tours])
 
-        }catch (e){
+        } catch (e) {
             console.log(e)
             setError(e.request.status)
             console.log(e.request.status)
@@ -42,18 +42,20 @@ const HomePage = () => {
     useEffect(() => {
         data()
         // console.log(d)
-        return () => {}
+        return () => {
+        }
     }, [tourCategory])
 
 
-    if(tours.length){
+    if (tours.length) {
         return (
             <div>
-                <HeaderMainDescription title={'Welcome to Traveller!'}
-                                       to={'/about_us'}
-                description={'We are glad to see you on our web-site! \n' +
-                'Here you can share your opinion about all your travels all over the world! And of-course you can take some;)\n' +
-                'Enjoy!'}/>
+                <HeaderMainDescription
+                    title={'Welcome to Traveller!'}
+                    to={'/about_us'}
+                    description={'We are glad to see you on our web-site! \n' +
+                        'Here you can share your opinion about all your travels all over the world! And of-course you can take some;)\n' +
+                        'Enjoy!'}/>
                 <div className={'container'}>
                     <div className={styles.IntroCards}>
                         <IntroCard svg={'/img/svg/photo_camera.svg'} cardTitle={'Share your experience'}
@@ -91,10 +93,10 @@ const HomePage = () => {
     }
 
 
-        return(
-            <>
-                {!error ? <Loader/> : <h3>SOMETHING WENT WRONG, RELOAD THE PAGE</h3>}
-            </>
+    return (
+        <>
+            {!error ? <Loader/> : <h3>SOMETHING WENT WRONG, RELOAD THE PAGE</h3>}
+        </>
     )
 }
 

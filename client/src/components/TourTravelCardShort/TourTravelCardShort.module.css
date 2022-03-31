@@ -2,5 +2,12 @@
   width: 100%;
   margin: auto !important;
 }
+.cards .card-content {
+  height: 250px !important;
+  padding: 12px 24px !important;
+}
+.cards .btn {
+  margin: 12px 0 !important;
+}
 
 /*# sourceMappingURL=TourTravelCardShort.module.css.map */

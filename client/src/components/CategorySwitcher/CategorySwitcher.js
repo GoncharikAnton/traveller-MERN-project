@@ -13,9 +13,6 @@ const Category_switcher = ({
 
 
     // console.log('rendered from category switcher')
-    // console.log(updateCategory,
-    //     activeCategory,
-    //     rely)
 
     const [categories, setCategories] = useState(null)
     const [error, setError] = useState(null)
@@ -31,7 +28,7 @@ const Category_switcher = ({
         } catch (e) {
             console.log(e)
         }
-    }, [])
+    }, [rely])
 
     useEffect(() => {
         data()
@@ -46,19 +43,21 @@ const Category_switcher = ({
     return (
         <>
             <IntroCapTitle capTitle={capTitle}/>
-            <div className="CategorySwitcher">
+            <div className="row CategorySwitcher">
                 <ul className="pagination">
 
                     {/*<li className="waves-effect active cyan"><a>{blogs.cat1.title}</a></li> //////////////*/}
                     {categories && categories.map((cat, ind) => {
-                        return <li className={`${activeCategory === cat.name ? active_link :
-                            passive_link}  hoverable`}
-                                   key={cat._id}
-                                   category={cat.name}
-                                   onClick={(e) => {
-                                       return updateCategory(e.target.attributes.getNamedItem("category").value)
-                                   }}
-                        >{cat.name}</li>
+                        return <div className={'col s6 m6 l3 switcher_button'}>
+                            <li className={`${activeCategory === cat.name ? active_link :
+                                passive_link}  hoverable`}
+                                key={cat._id}
+                                category={cat.name}
+                                onClick={(e) => {
+                                    return updateCategory(e.target.attributes.getNamedItem("category").value)
+                                }}
+                            >{cat.name}</li>
+                        </div>
                     })}
                     {/*<li className="waves-effect"><a href="#!"><i className="material-icons">chevron_right</i></a></li>*/}
                 </ul>

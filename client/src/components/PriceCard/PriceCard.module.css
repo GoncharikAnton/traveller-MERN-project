@@ -17,4 +17,10 @@
   text-align: center;
 }
 
+@media screen and (max-width: 769px) {
+  .PriceCard {
+    width: 100%;
+  }
+}
+
 /*# sourceMappingURL=PriceCard.module.css.map */

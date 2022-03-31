@@ -8,20 +8,13 @@ import DescriptionCardWhite from "../../../components/DescriptionCardWhite/Descr
 import DescriptionCardCyan from "../../../components/DescriptionCardCyan/DescriptionCardCyan";
 import Map from "../../../components/Map/Map";
 import IntroCard from "../../../components/IntroCard/IntroCard";
-// import PriceCard from "../../../components/PriceCard/PriceCard";
+import PriceCard from "../../../components/PriceCard/PriceCard";
 
 import styles from './TourDetailPage.module.css'
-import PriceCard from "../../../components/PriceCard/PriceCard";
 
 
 const TourDetailPage = () => {
 
-
-    const location = {
-        address: '1600 Amphitheatre Parkway, Mountain View, california.',
-        lat: 37.42216,
-        lng: -122.08427,
-    }
 
     const tour_id = window.location.pathname.split('/').pop()
     const [tour, setTour] = useState(null)

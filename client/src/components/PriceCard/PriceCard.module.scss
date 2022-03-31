@@ -1,4 +1,4 @@
-.PriceCard{
+.PriceCard {
   display: flex;
   flex-wrap: wrap;
   width: calc(100% / 3 - 30px);
@@ -8,15 +8,21 @@
   border-radius: 3px;
   justify-content: center;
 
-  div{
+  div {
     display: flex;
     flex-basis: 100%;
     justify-content: center;
 
-    span{
+    span {
       text-align: center;
     }
 
   }
 
+}
+
+@media screen and (max-width: 769px) {
+  .PriceCard {
+    width: 100%;
+  }
 }

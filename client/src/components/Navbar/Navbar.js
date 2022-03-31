@@ -36,7 +36,7 @@ const Navbar = () => {
                             {auth.isAuthenticated && auth.role === 'user' ? <li><Link to="/">Delete post</Link></li> :
                                 auth.isAuthenticated && auth.role === 'admin' && <li><Link to="/delete_tour">Delete tour</Link></li>}
                             {auth.isAuthenticated && auth.role === 'user' && <li><Link to="/">Profile</Link></li>}
-                            {auth.isAuthenticated && auth.role === 'user' && <li><Link to="/cart">Cart</Link></li>}
+                            {auth.isAuthenticated && auth.role === 'user' && <li><Link to={`/cart/${auth.userId}`}>Cart</Link></li>}
                             {auth.isAuthenticated ? <li><Link to="/" onClick={logoutHandler}>Logout</Link></li> :
                                 <li><Link to="/login">Login/Register</Link></li>}
                         </ul>
@@ -52,7 +52,7 @@ const Navbar = () => {
                         {auth.isAuthenticated && auth.role === 'user' ? <li><Link to="/">Delete post</Link></li> :
                             auth.isAuthenticated && auth.role === 'admin' && <li><Link to="/delete_tour">Delete tour</Link></li>}
                         {auth.isAuthenticated && auth.role === 'user' && <li><Link to="/">Profile</Link></li>}
-                        {auth.isAuthenticated && auth.role === 'user' && <li><Link to="/cart">Cart</Link></li>}
+                        {auth.isAuthenticated && auth.role === 'user' && <li><Link to={`/cart/${auth.userId}`}>Cart</Link></li>}
                         {auth.isAuthenticated ? <li><Link to="/" onClick={logoutHandler}>Logout</Link></li> :
                             <li><Link to="/login">Login/Register</Link></li>}
                     </ul>

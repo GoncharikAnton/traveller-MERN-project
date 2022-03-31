@@ -1,1 +1,23 @@
 @import "~materialize-css/dist/css/materialize.min.css";
+
+
+/* width */
+body::-webkit-scrollbar {
+    width: 12px!important;
+}
+
+/* Track */
+body::-webkit-scrollbar-track {
+    background: #f1f1f1!important;
+}
+
+/* Handle */
+body::-webkit-scrollbar-thumb {
+    border-radius: 3px!important;
+    background: #00BCD4!important;
+}
+
+/* Handle on hover */
+body::-webkit-scrollbar-thumb:hover {
+    background: #555!important;
+}

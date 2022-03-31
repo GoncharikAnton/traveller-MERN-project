@@ -1,4 +1,12 @@
 .cards{
   width: 100%;
   margin: auto!important;
+
+  .card-content{
+    height: 250px!important;
+    padding: 12px 24px!important;
+  }
+  .btn{
+    margin: 12px 0!important;
+  }
 }

@@ -1,6 +1,6 @@
 .CategorySwitcher{
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   flex-wrap: wrap;
 
   p{
@@ -13,14 +13,19 @@
 
   }
 
-  ul{
-    margin: 25px auto;
+  .switcher_button{
+    display: flex;
+    justify-content: center;
+    width: calc(100% / 4 - 25px);
+  }
+
+  .pagination{
+    margin: 20px auto;
     justify-content: center;
 
     li{
-      margin: 0 25px;
-      width: 120px;
-      //padding: 10px;
+      margin: 10px 0px;
+      width: 110px;
       border: 2px solid #00bcd4;
 
       a{

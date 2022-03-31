@@ -1,6 +1,6 @@
 .CategorySwitcher {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   flex-wrap: wrap;
 }
 .CategorySwitcher p {
@@ -11,16 +11,21 @@
   color: #00bcd4;
   font-weight: bold;
 }
-.CategorySwitcher ul {
-  margin: 25px auto;
+.CategorySwitcher .switcher_button {
+  display: flex;
+  justify-content: center;
+  width: calc(25% - 25px);
+}
+.CategorySwitcher .pagination {
+  margin: 20px auto;
   justify-content: center;
 }
-.CategorySwitcher ul li {
-  margin: 0 25px;
-  width: 120px;
+.CategorySwitcher .pagination li {
+  margin: 10px 0px;
+  width: 110px;
   border: 2px solid #00bcd4;
 }
-.CategorySwitcher ul li a {
+.CategorySwitcher .pagination li a {
   margin: -2px;
   padding: 0;
 }
