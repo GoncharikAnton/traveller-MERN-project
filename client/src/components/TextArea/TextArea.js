@@ -1,9 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
+import styles from './TextArea.module.css'
 
-
-const TextArea = ({placeholder, setData = null, id, name, label , data}) => {
-
-    // const [value, setValue] = useState(null)
+const TextArea = ({placeholder, setData = null, id, name, label, data, area_value = ''}) => {
 
     useEffect(() => {
         window.M.updateTextFields()
@@ -13,12 +11,16 @@ const TextArea = ({placeholder, setData = null, id, name, label , data}) => {
     return (
         <div className="row">
             <div className="row">
-                <div className="input-field col s12">
+                <div className={`input-field col s12 ${styles.area_div}`}>
                     <textarea onChange={(e) => {
                         // setValue(e.target.value)
-                        setData({...data, [e.target.name] : e.target.value})
+                        setData({...data, [e.target.name]: e.target.value})
                     }}
-                        id={id} name={name} className="materialize-textarea" placeholder={placeholder}/>
+                              defaultValue={area_value}
+                              id={id}
+                              name={name}
+                              className={`materialize-textarea ${styles.area_field}`}
+                              placeholder={placeholder}/>
                     <label htmlFor={id}>{label}</label>
                 </div>
             </div>

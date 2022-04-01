@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useLayoutEffect, useRef, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {getTours} from "../../../data_mining/getTours";
 import Loader from "../../../components/Loader/Loader";
 import Button from "../../../components/Button/Button";
@@ -29,7 +29,7 @@ const DeleteTourPage = () => {
             <h1 className={'center cyan-text'}>Delete tour</h1>
             <ul className={'collection'}>
             {tours && tours.map((tour) => {
-                return <li className={'collection-item '}>
+                return <li className={'collection-item '} key={Math.random()}>
                     <span className={'title'}>{tour.name}</span>
                     <p>{tour.price}</p><br/>
                     <Button to={'#'} description={'Delete tour'} deleting={true} onClick={() => deleteTour(tour._id)}/>

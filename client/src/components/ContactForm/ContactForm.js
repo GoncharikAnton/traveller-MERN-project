@@ -9,7 +9,13 @@ const ContactForm = () => {
             <form action="#">
                 <input type="text" placeholder={'Enter your name'} className={`${style.ContactForm_inp1}`}/>
                 <input type="text" placeholder={'Enter your email'} />
-                <input type="text" placeholder={'Enter your message'} className={`${style.ContactForm_inp3}`}/>
+
+                    <textarea id="textarea1" className={`materialize-textarea ${ style.ContactForm_inp3}`}
+                              placeholder={'Enter your message'}
+                    ></textarea>
+
+                {/*<input type="text" placeholder={'Enter your message'}*/}
+                {/*       className={`materialize-textarea ${ style.ContactForm_inp3}`}/>*/}
                 <Button description={'Send message'}/>
             </form>
         </div>

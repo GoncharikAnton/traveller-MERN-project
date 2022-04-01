@@ -1,11 +1,11 @@
-import React, {useCallback, useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import styles from "./AllToursPage.module.css"
 import Loader from "../../../components/Loader/Loader";
 import HeaderMainDescription from "../../../components/HeaderMainDescription/HeaderMainDescription";
 import {CategorySwitcher} from "../../../components/CategorySwitcher/CategorySwitcher";
 import {getTours} from "../../../data_mining/getTours";
 import TourTravelCardLong from "../../../components/TourTravelCardLong/TourTravelCardLong";
-import { useLocation} from "react-router-dom";
+// import { useLocation} from "react-router-dom";
 
 
 const AllToursPage = () => {

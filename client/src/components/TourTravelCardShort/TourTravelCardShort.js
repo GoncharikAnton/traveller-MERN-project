@@ -1,4 +1,4 @@
-import React, {memo, useEffect} from 'react';
+import React  from 'react';
 import styles from './TourTravelCardShort.module.css'
 import Button from "../Button/Button";
 import {shortDescriptionCalc} from '../../data_mining/shortScripts/shortDescriptionCalc'
@@ -6,7 +6,6 @@ import Loader from "../Loader/Loader";
 
 export const tour_travel_card_short = ({tourCategory, tour}) => {
     // console.log('rendered')
-
     const shortDescription = shortDescriptionCalc(tour.description)
 
 

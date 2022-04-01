@@ -13,10 +13,8 @@ const Category_switcher = ({
 
 
     // console.log('rendered from category switcher')
-
     const [categories, setCategories] = useState(null)
     const [error, setError] = useState(null)
-
 
     const data = useCallback(async () => {
         try {
@@ -48,7 +46,7 @@ const Category_switcher = ({
 
                     {/*<li className="waves-effect active cyan"><a>{blogs.cat1.title}</a></li> //////////////*/}
                     {categories && categories.map((cat, ind) => {
-                        return <div className={'col s6 m6 l3 switcher_button'}>
+                        return <div key={cat._id + Math.random()} className={'col s6 m6 l3 switcher_button'}>
                             <li className={`${activeCategory === cat.name ? active_link :
                                 passive_link}  hoverable`}
                                 key={cat._id}

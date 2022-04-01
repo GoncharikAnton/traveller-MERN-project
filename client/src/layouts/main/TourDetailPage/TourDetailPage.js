@@ -11,25 +11,37 @@ import IntroCard from "../../../components/IntroCard/IntroCard";
 import PriceCard from "../../../components/PriceCard/PriceCard";
 
 import styles from './TourDetailPage.module.css'
+import {useSelector, useStore} from "react-redux";
+import Button from "../../../components/Button/Button";
+import {useNavigate} from "react-router";
 
 
 const TourDetailPage = () => {
 
+    const store = useSelector((state) => state)
 
     const tour_id = window.location.pathname.split('/').pop()
     const [tour, setTour] = useState(null)
+    const navigate = useNavigate()
+
 
     useEffect(() => {
-        getTours(null, tour_id)
-            .then((data) => data.status === 'success' ? setTour({...data.data.tour}) : undefined)
-            .catch(e => {
-                console.log(e)
-            })
-        return () => {
+        if(store._id === 'preview'){
+            setTour(store)
+        }else{
+            getTours(null, tour_id)
+                .then((data) => data.status === 'success' ? setTour({...data.data.tour}) : undefined)
+                .catch(e => {
+                    console.log(e)
+                })
+            return () => {
+            }
         }
-    }, [tour_id])
+        }, [tour_id])
+
 
     if (tour) {
+        console.log(tour)
         const date = new Date(tour.startDates[0])
         const coordinates = tour.coordinates ? tour.coordinates.split(', ') : ['35', '35']
         const location = {
@@ -41,6 +53,12 @@ const TourDetailPage = () => {
         const descThreePart = threePartDescription(tour.description)
         return (
             <>
+            {store._id === 'preview' && <div className={'container'}>
+                <IntroCapTitle capTitle={'PREVIEW'}/>
+                <Button to={'/create_tour'} description={'GO BACK TO CREATE TOUR'}/>
+            </div>}
+
+
                 <HeaderMainDescription img={'/img/cover/tour-1-cover.jpg'}
                                        description={shortDescription}
                                        title={tour.name}

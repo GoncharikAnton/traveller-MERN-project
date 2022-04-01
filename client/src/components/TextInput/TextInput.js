@@ -1,23 +1,26 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
+import styles from './TextInput.module.css'
 
-const Text_Input = ({placeholder, setData = null, id, name, type = 'text', label, data = null}) => {
+const Text_Input = ({placeholder, setData = null, id, name, type = 'text', label, data = null, text_value = ''}) => {
 
-    // const [value, setValue] = useState(null)
 
-    useEffect(() => {
-        window.M.updateTextFields()
-    }, []);
+    // useEffect(() => {
+    //     window.M.updateTextFields()
+    // }, []);
 
-    return(
+    return (
         <>
             <div className="row">
-                <div className="input-field col s12 m12 l12">
-                    <input onChange={(e) => {
-                        // setValue(e.target.value)
-                        setData({...data, [e.target.name] : e.target.value})
-                    }}
-                        defaultValue={''} id={id} name={name} type={type} className="validate" placeholder={placeholder}/>
-                        <label className="active" htmlFor={id}>{label}</label>
+                <div className={`input-field col s12 m8 l8 ${styles.input_field_div}`}>
+                    <input
+                        onChange={(e) => {
+                            // setValue(e.target.value)
+                            setData({...data, [e.target.name]: e.target.value})
+                        }}
+                        defaultValue={text_value} id={id} name={name} type={type}
+                        className={`${styles.input_field} validate`}
+                        placeholder={placeholder}/>
+                    <label className="active" htmlFor={id}>{label}</label>
                 </div>
             </div>
         </>

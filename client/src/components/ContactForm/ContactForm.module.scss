@@ -29,7 +29,19 @@
     margin: 100px 0 20px auto !important;
   }
   .ContactForm_inp3{
-    height: 250px !important;
+    min-height: 200px !important;
+    padding-bottom: 210px !important;
+    margin: 25px auto !important;
+    background: rgba(0, 0, 0, 0.5)!important;
+    border: 2px solid #00BCD4!important;
+    border-radius: 2px!important;
+    box-sizing: border-box!important;
+    color: #fff;
+    //margin: 50px!important;
+    width: 81%!important;
+    resize: vertical!important;
+    text-align: start!important;
+
   }
 
 

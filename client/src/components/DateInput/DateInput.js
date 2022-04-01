@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import M from 'materialize-css'
 
-const Date_Input = ({setData, data = null}) => {
+const Date_Input = ({setData, data = null, date_value = ''}) => {
 
     const [value, setValue] = useState([])
 
@@ -21,7 +21,7 @@ const Date_Input = ({setData, data = null}) => {
 
 
     return (
-        <input
+        <input defaultValue={date_value}
             onChange={(e) => {
                 console.log(e.target.value)
             }}

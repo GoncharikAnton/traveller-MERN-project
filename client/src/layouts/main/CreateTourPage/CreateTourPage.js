@@ -8,14 +8,21 @@ import SwitchInput from "../../../components/SwitchInput/SwitchInput";
 import {DateInput} from "../../../components/DateInput/DateInput";
 import Button from "../../../components/Button/Button";
 import axios from "axios";
+import {useNavigate} from "react-router";
+import {useDispatch, useSelector} from "react-redux";
 
 
 const CreateTourPage = () => {
 
+    console.log('render')
 
-    useEffect(() => {
-        window.M.updateTextFields()
-    }, []);
+    const navigate = useNavigate()
+
+    // useEffect(() => {
+    //     window.M.updateTextFields()
+    // }, []);
+    const store = useSelector((state) => state)
+    const dispatch = useDispatch()
 
     const [form, setForm] = useState({
         name: '', duration: '',
@@ -29,9 +36,13 @@ const CreateTourPage = () => {
         summary: '', coordinates: ''
 
     });
+
+
     let [cat, setCat] = useState([]);
 
+
     useEffect(() => {
+        let abortController = new AbortController();
         getCategories().then(cat => {
             cat.status === 'success' ? setCat([...cat.data.categories])
                 :
@@ -39,23 +50,68 @@ const CreateTourPage = () => {
         }).catch(error => {
             console.log(error)
         })
+        return () => {
+            abortController.abort();
+        }
+    }, [])
 
+    useEffect(() => {
+        let abortController = new AbortController();
+        if (store._id === 'preview') {
+            setForm(store)
+        }
+        return () => {
+            abortController.abort();
+        }
     }, [])
 
 
+    useEffect(() => {
+        dispatch({type: 'PREVIEW', payload: form})
+    }, [form])
+
     const createTour = async () => {
-        try{
-            axios.post('api/v1/tours', form, { 'Content-Type': 'application/json' }).then((res, req) => {
-                console.log(res, req)}).catch(e => console.log(e))
-        }catch (e){
-            console.log(e)}
+        let status = null;
+        try {
+            axios.post('api/v1/tours', form, {'Content-Type': 'application/json'}).then((res, req) => {
+                // console.log(res)
+                if (res.status === 201) {
+                    status = res.status
+                    return navigate(`/tours/${res.data.data.tour._id}`)
+                }
+            }).catch(e => {
+                console.log(e)
+                if (status !== 201 && e) {
+                    return alert("Some fields are empty/invalid. Check your tour's data.")
+                }
+            })
+        } catch (e) {
+            console.log(e)
+        }
     }
 
+
+    function preview() {
+        dispatch({type: 'PREVIEW', payload: {...form, _id: 'preview'}})
+        navigate(`/tour/preview`)
+        return
+    }
+
+    function clean() {
+        dispatch({type: 'CLEAN'})
+        return
+    }
 
     return (
         <div className={'container'}>
 
             <IntroCapTitle capTitle={'Create new tour'}/>
+
+            <div className={'row'}><p>Fields marked *** - are required fields!</p><Button
+                to={'/tours/preview'}
+                onClick={() => {
+                    preview()
+                }} description={'PREVIEW'}/></div>
 
             <TextInput
                 id={'name'}
@@ -64,6 +120,7 @@ const CreateTourPage = () => {
                 placeholder={'Title:'}
                 required={true}
                 data={form}
+                text_value={store.name}
                 setData={setForm}
             />
             <TextInput
@@ -74,6 +131,7 @@ const CreateTourPage = () => {
                 required={true}
                 data={form}
                 setData={setForm}
+                text_value={store.duration}
                 type={'number'}
             />
             <TextInput
@@ -83,16 +141,20 @@ const CreateTourPage = () => {
                 label={'Enter the difficulty ***'}
                 data={form}
                 setData={setForm}
+                text_value={store.difficulty}
                 required={true}
             />
-            <DateInput setData={setForm} data={form}/>
-            <SwitchInput categories={cat} setData={setForm} data={form}/>
+            <DateInput setData={setForm} data={form} date_value={store.startDates}
+            />
+            <SwitchInput categories={cat} setData={setForm} data={form} switch_value={store.category}
+            />
             <TextInput
                 id={'rating'}
                 name={'rating'}
                 placeholder={'Rating: '}
                 label={'Enter the rating'}
                 data={form}
+                text_value={store.rating}
                 setData={setForm}
                 type={'number'}
             />
@@ -102,6 +164,7 @@ const CreateTourPage = () => {
                 placeholder={'Description: '}
                 data={form}
                 setData={setForm}
+                area_value={store.description}
                 label={'Enter the description ***'}
             />
             <TextInput
@@ -111,6 +174,7 @@ const CreateTourPage = () => {
                 placeholder={'Maximum group size: '}
                 required={true}
                 data={form}
+                text_value={store.maxGroupSize}
                 setData={setForm}
                 type={'number'}
             />
@@ -122,6 +186,7 @@ const CreateTourPage = () => {
                 placeholder={'Price: '}
                 required={true}
                 data={form}
+                text_value={store.price}
                 setData={setForm}
                 type={'number'}
             />
@@ -132,6 +197,7 @@ const CreateTourPage = () => {
                 placeholder={'Summary: '}
                 required={true}
                 data={form}
+                text_value={store.summary}
                 setData={setForm}
             />
 
@@ -142,6 +208,7 @@ const CreateTourPage = () => {
                 placeholder={'Discount: '}
                 data={form}
                 setData={setForm}
+                text_value={store.discount}
                 type={'number'}
             />
 
@@ -152,12 +219,18 @@ const CreateTourPage = () => {
                 placeholder={'Coordinates: '}
                 required={true}
                 data={form}
+                text_value={store.coordinates}
                 setData={setForm}
             />
             {/*<ImageInput img_type={'Cover image'}/>*/}
             {/*<ImageInput img_type={'Images'}/>*/}
 
-            <Button description={'Submit'} onClick={() => createTour()} to={'#'}/>
+            <Button description={'Submit'} onClick={() => {
+                console.log(form)
+                delete(form._id)
+                clean()
+                return createTour()
+            }} to={'#'}/>
 
         </div>
     )

@@ -1,7 +1,6 @@
 import React from 'react'
 import styles from './Footer.module.css'
 import ContactForm from "../../components/ContactForm/ContactForm";
-import Navbar from "../../components/Navbar/Navbar";
 
 const Footer = () => {
     // console.log('FOOTER render')

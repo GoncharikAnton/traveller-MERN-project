@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useRef, useState} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import useDidMount from "@rooks/use-did-mount"
 import {CategorySwitcher} from "../../../components/CategorySwitcher/CategorySwitcher";
 import IntroCard from "../../../components/IntroCard/IntroCard";
