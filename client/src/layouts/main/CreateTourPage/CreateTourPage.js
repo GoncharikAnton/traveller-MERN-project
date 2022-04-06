@@ -10,6 +10,7 @@ import Button from "../../../components/Button/Button";
 import axios from "axios";
 import {useNavigate} from "react-router";
 import {useDispatch, useSelector} from "react-redux";
+const _ = require("lodash")
 
 
 const CreateTourPage = () => {

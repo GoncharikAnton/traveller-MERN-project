@@ -1,9 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import M from 'materialize-css'
 
 const Date_Input = ({setData, data = null, date_value = ''}) => {
 
     const [value, setValue] = useState([])
+
+    useCallback(() => {
+
+    }, [])
 
     useEffect(() => {
         const elem = document.querySelector('.datepicker');

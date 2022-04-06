@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import {getTours} from "../../../data_mining/getTours";
 import Loader from "../../../components/Loader/Loader";
 import Button from "../../../components/Button/Button";
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 import axios from "axios";
 
 
@@ -19,10 +21,28 @@ const DeleteTourPage = () => {
         }
     }
 
+    function deleteConfirmation(id){
+        confirmAlert({
+            title: 'Confirm to delete',
+            message: 'Are you sure?',
+            buttons: [
+                {
+                    label: 'Yes',
+                    onClick: () => deleteTour(id)
+
+                },
+                {
+                    label: 'No',
+                    onClick: () => {}
+                }
+            ]
+        });
+    }
+
     useEffect(() => {
         getTours().then(data => setTours([...data.data.tours])).catch(e => new Error(e))
     }, [])
-
+ // TODO Make a check about DELTETING!!!!!!!!!!!!!!!!!
     return(
         <div className={'container'}>
             {!tours && <Loader/>}
@@ -32,7 +52,9 @@ const DeleteTourPage = () => {
                 return <li className={'collection-item '} key={Math.random()}>
                     <span className={'title'}>{tour.name}</span>
                     <p>{tour.price}</p><br/>
-                    <Button to={'#'} description={'Delete tour'} deleting={true} onClick={() => deleteTour(tour._id)}/>
+                    <Button to={'#'} description={'Delete tour'} deleting={true} onClick={() => {
+                        deleteConfirmation(tour._id)
+                    }}/>
                 </li>
             })}
             </ul>

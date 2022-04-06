@@ -7,16 +7,15 @@
   color: #fff;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-
+  justify-content: flex-start;
 
 
   ul{
-    margin: 230px auto;
+    margin: 230px 30px 230px 75px;
 
     li{
       margin: 25px;
-      width: 80%
+      width: 75%;
     }
 
   }

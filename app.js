@@ -1,6 +1,7 @@
 const config = require('config');
 const express = require('express');
 const mongoose = require('mongoose');
+const multer = require('multer');
 
 const tourRouter = require('./routes/tourRoutes')
 const tourCategoryRouter = require('./routes/tourCategoryRoutes')
@@ -25,7 +26,6 @@ app.use((req, res, next) => {
 
 // USE STATIC FILES
 app.use(express.static(path.join(__dirname, 'static')));
-
 
 
 // 3)ROUTS

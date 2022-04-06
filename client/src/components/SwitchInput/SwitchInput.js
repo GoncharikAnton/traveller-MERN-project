@@ -3,7 +3,7 @@ import React from 'react'
 
 const SwitchInput = ({categories, setData, data, switch_value = 'Choose category'}) => {
 
-    console.log(switch_value)
+
     return (
 
         <div className="input-field col s12">

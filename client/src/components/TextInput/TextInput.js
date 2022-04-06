@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './TextInput.module.css'
+const _ = require("lodash")
 
 const Text_Input = ({placeholder, setData = null, id, name, type = 'text', label, data = null, text_value = ''}) => {
 
@@ -8,6 +9,10 @@ const Text_Input = ({placeholder, setData = null, id, name, type = 'text', label
     //     window.M.updateTextFields()
     // }, []);
 
+    const debounced_fun = _.debounce(function (data){
+        setData(data)
+    }, 500)
+
     return (
         <>
             <div className="row">
@@ -15,7 +20,8 @@ const Text_Input = ({placeholder, setData = null, id, name, type = 'text', label
                     <input
                         onChange={(e) => {
                             // setValue(e.target.value)
-                            setData({...data, [e.target.name]: e.target.value})
+                            debounced_fun({...data, [e.target.name]: e.target.value})
+                            // setData({...data, [e.target.name]: e.target.value})
                         }}
                         defaultValue={text_value} id={id} name={name} type={type}
                         className={`${styles.input_field} validate`}

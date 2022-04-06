@@ -12,9 +12,11 @@ const AboutUsPage = () => {
     return (
         <>
             <HeaderMainDescription
-                title='About us' description={'We are the command of travellers, united by our interests!' +
-                ' We are glad to see you here! You can read about our project here, or take the tour!'}
-                buttonDescription={'Take the tour'} to={'/tours'}/>
+                title={'About us'}
+                description={'We are the command of travellers, united by our interests!' +
+                    ' We are glad to see you here! You can read about our project here, or take the tour!'}
+                buttonDescription={'Take the tour'} to={'/tours'}
+            />
             <div className={'container'}>
                 <IntroCapTitle capTitle={'About us'}/>
                 <DescriptionCardWhite

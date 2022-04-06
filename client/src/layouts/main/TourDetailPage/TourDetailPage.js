@@ -14,6 +14,7 @@ import styles from './TourDetailPage.module.css'
 import {useSelector, useStore} from "react-redux";
 import Button from "../../../components/Button/Button";
 import {useNavigate} from "react-router";
+import MapApi from "../../../components/Map/MapApi";
 
 
 const TourDetailPage = () => {
@@ -59,7 +60,7 @@ const TourDetailPage = () => {
             </div>}
 
 
-                <HeaderMainDescription img={'/img/cover/tour-1-cover.jpg'}
+                <HeaderMainDescription img={`/img/${tour.imageCover}`}
                                        description={shortDescription}
                                        title={tour.name}
                                        button={false}
@@ -73,11 +74,12 @@ const TourDetailPage = () => {
                         <IntroCard svg={'/img/svg/rating_star.svg'} cardTitle={`Rating | ${tour.ratingsAverage} points`}/>
                         <IntroCard svg={'/img/svg/calendar.svg'} cardTitle={`Start | ${date.toDateString()}`}/>
                     </div>
-                    <DescriptionCardWhite span_text={descThreePart[0]} img={'/img/nature/tour-2-1.jpg'}/>
-                    <DescriptionCardCyan span_text={descThreePart[1]} img={'/img/nature/tour-2-2.jpg'}/>
-                    <DescriptionCardWhite span_text={descThreePart[2]} img={'/img/nature/tour-2-3.jpg'}/>
+                    <DescriptionCardWhite span_text={descThreePart[0]} img={`/img/${tour.images[0]}`}/>
+                    <DescriptionCardCyan span_text={descThreePart[1]} img={`/img/${tour.images[1]}`}/>
+                    <DescriptionCardWhite span_text={descThreePart[2]} img={`/img/${tour.images[2]}`}/>
                     <IntroCapTitle capTitle={'Where'}/>
                     <Map location={location} zoomLevel={17} />
+                    {/*<MapApi/>*/}
                     <IntroCapTitle capTitle={'Price'}/>
                     <div className={`${styles.PriceCard_div}`}>
                         <PriceCard priceType={'Standard'}

@@ -15,7 +15,7 @@ export const tour_travel_card_short = ({tourCategory, tour}) => {
             {tour &&<div className={`col s12 m6 l4 ${styles.cards}`} >
                 <div className="card large hoverable">
                     <div className="card-image waves-effect waves-block waves-light">
-                        <img className="activator" src="/img/nature/main.jpg"/>
+                        <img className="activator" src={`/img/${tour.imageCover}`}/>
                     </div>
                     <div className={`${styles['card-content']}`}>
                     <span className="card-title activator grey-text text-darken-4">{tour.name}<i

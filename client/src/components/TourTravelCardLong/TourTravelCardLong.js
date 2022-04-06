@@ -10,7 +10,7 @@ const TourTravelCardLong = ({tour}) => {
     return (
         <div className="card large card-panel hoverable ">
             <div className="card-image">
-                <img src="/img/nature/main.jpg"/>
+                <img src={`/img/${tour.imageCover}`}/>
                 <span className="card-title">{tour.name}</span>
             </div>
             <div className={`card-content ${styles['card-content']} `}>

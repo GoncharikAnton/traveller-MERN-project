@@ -49,7 +49,7 @@ const HomePage = () => {
 
     if (tours.length) {
         return (
-            <div>
+            <>
                 <HeaderMainDescription
                     title={'Welcome to Traveller!'}
                     to={'/about_us'}
@@ -88,7 +88,7 @@ const HomePage = () => {
                     </div>
 
                 </div>
-            </div>
+            </>
         );
     }
 
