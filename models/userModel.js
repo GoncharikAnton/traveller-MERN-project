@@ -45,7 +45,12 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: true,
     select: false
-  }
+  },
+  cart: [{
+    price: String,
+    tourId: String,
+    persons: String
+  }]
 });
 
 userSchema.pre('save', async function(next) {
