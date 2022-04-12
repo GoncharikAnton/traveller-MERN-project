@@ -21,7 +21,7 @@ const cartReducer = createReducer({}, (builder)=> {
             console.log(payload)
             state.cart = {...payload};
         })
-        .addCase('REMOVEFROMCART', (state, {payload}) => {
+        .addCase('REMOVEFROMCART', (state) => {
             state.cart = {}
         })
 })
@@ -31,6 +31,7 @@ const composedEnhancers = composeWithDevTools(applyMiddleware(thunk));
 
 const rootReducer = combineReducers({
     preview: previewReducer,
+    cart: cartReducer
 
 });
 
