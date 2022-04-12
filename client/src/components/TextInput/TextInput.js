@@ -16,8 +16,8 @@ const Text_Input = ({placeholder, setData = null, id, name, type = 'text', label
     return (
         <>
             <div className="row">
-                <div className={`input-field col s12 m8 l8 ${styles.input_field_div}`}>
-                    <input
+                <div className={`input-field col s12 m8 l8 ${styles.input_field_div} validate`}>
+                    <input required validate
                         onChange={(e) => {
                             // setValue(e.target.value)
                             debounced_fun({...data, [e.target.name]: e.target.value})

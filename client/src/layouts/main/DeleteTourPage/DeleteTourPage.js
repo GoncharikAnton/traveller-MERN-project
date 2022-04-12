@@ -42,7 +42,6 @@ const DeleteTourPage = () => {
     useEffect(() => {
         getTours().then(data => setTours([...data.data.tours])).catch(e => new Error(e))
     }, [])
- // TODO Make a check about DELTETING!!!!!!!!!!!!!!!!!
     return(
         <div className={'container'}>
             {!tours && <Loader/>}
@@ -50,8 +49,7 @@ const DeleteTourPage = () => {
             <ul className={'collection'}>
             {tours && tours.map((tour) => {
                 return <li className={'collection-item '} key={Math.random()}>
-                    <span className={'title'}>{tour.name}</span>
-                    <p>{tour.price}</p><br/>
+                    <h4 className={'title'}>{tour.name}</h4>
                     <Button to={'#'} description={'Delete tour'} deleting={true} onClick={() => {
                         deleteConfirmation(tour._id)
                     }}/>

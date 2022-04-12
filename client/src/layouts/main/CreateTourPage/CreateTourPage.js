@@ -10,6 +10,8 @@ import Button from "../../../components/Button/Button";
 import axios from "axios";
 import {useNavigate} from "react-router";
 import {useDispatch, useSelector} from "react-redux";
+import styles from './CreateTourPage.module.css'
+
 const _ = require("lodash")
 
 
@@ -108,11 +110,7 @@ const CreateTourPage = () => {
 
             <IntroCapTitle capTitle={'Create new tour'}/>
 
-            <div className={'row'}><p>Fields marked *** - are required fields!</p><Button
-                to={'/tours/preview'}
-                onClick={() => {
-                    preview()
-                }} description={'PREVIEW'}/></div>
+            <div className={'row'}><p>Fields marked *** - are required fields!</p></div>
 
             <TextInput
                 id={'name'}
@@ -225,13 +223,21 @@ const CreateTourPage = () => {
             />
             {/*<ImageInput img_type={'Cover image'}/>*/}
             {/*<ImageInput img_type={'Images'}/>*/}
-
-            <Button description={'Submit'} onClick={() => {
-                console.log(form)
-                delete(form._id)
-                clean()
-                return createTour()
-            }} to={'#'}/>
+            <div className={styles.btn_m}>
+                <Button
+                    to={'/tours/preview'}
+                    onClick={() => {
+                        preview()
+                    }} description={'PREVIEW'}/>
+            </div>
+            <div className={styles.btn_m}>
+                <Button
+                    description={'Submit'} onClick={() => {
+                    delete (form._id)
+                    clean()
+                    return createTour()
+                }} to={'#'}/>
+            </div>
 
         </div>
     )

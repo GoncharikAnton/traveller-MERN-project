@@ -16,7 +16,8 @@ const TextArea = ({placeholder, setData = null, id, name, label, data, area_valu
         <div className="row">
             <div className="row">
                 <div className={`input-field col s12 ${styles.area_div}`}>
-                    <textarea onChange={(e) => {
+                    <textarea
+                        onChange={(e) => {
                         // setValue(e.target.value)
                         debounced_fun({...data, [e.target.name]: e.target.value})
                     }}

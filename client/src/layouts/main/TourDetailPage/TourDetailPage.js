@@ -6,16 +6,15 @@ import {shortDescriptionCalc, threePartDescription} from "../../../data_mining/s
 import {IntroCapTitle} from "../../../components/IntroCapTitle/IntroCapTitle";
 import DescriptionCardWhite from "../../../components/DescriptionCardWhite/DescriptionCardWhite";
 import DescriptionCardCyan from "../../../components/DescriptionCardCyan/DescriptionCardCyan";
-import Map from "../../../components/Map/Map";
 import IntroCard from "../../../components/IntroCard/IntroCard";
 import PriceCard from "../../../components/PriceCard/PriceCard";
-
-import styles from './TourDetailPage.module.css'
-import {useSelector, useStore} from "react-redux";
+import {useSelector} from "react-redux";
 import Button from "../../../components/Button/Button";
 import {useNavigate} from "react-router";
 import MapApi from "../../../components/Map/MapApi";
+import Map from "../../../components/Map/Map";
 
+import styles from './TourDetailPage.module.css'
 
 const TourDetailPage = () => {
 
