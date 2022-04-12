@@ -40,7 +40,6 @@ const TourDetailPage = () => {
 
 
     if (tour) {
-        console.log(tour)
         const date = new Date(tour.startDates[0])
         const coordinates = tour.coordinates ? tour.coordinates.split(', ') : ['35', '35']
         const location = {

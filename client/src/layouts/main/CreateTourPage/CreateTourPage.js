@@ -25,7 +25,6 @@ const CreateTourPage = () => {
     //     window.M.updateTextFields()
     // }, []);
     const store = useSelector((state) => state.preview.preview)
-    console.log(store._id)
     const dispatch = useDispatch()
 
     const [form, setForm] = useState({
@@ -78,7 +77,6 @@ const CreateTourPage = () => {
         let status = null;
         try {
             axios.post('api/v1/tours', form, {'Content-Type': 'application/json'}).then((res, req) => {
-                // console.log(res)
                 if (res.status === 201) {
                     status = res.status
                     return navigate(`/tours/${res.data.data.tour._id}`)

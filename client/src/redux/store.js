@@ -7,7 +7,6 @@ import {createReducer} from "@reduxjs/toolkit";
 const previewReducer = createReducer({}, (builder)=> {
     builder
         .addCase('PREVIEW', (state, {payload}) => {
-            console.log(payload)
         state.preview = {...payload};
     })
     .addCase('CLEAN', (state, {payload}) => {
@@ -18,7 +17,6 @@ const previewReducer = createReducer({}, (builder)=> {
 const cartReducer = createReducer({}, (builder)=> {
     builder
         .addCase('ADDTOCART', (state, {payload}) => {
-            console.log(payload)
             state.cart = {...payload};
         })
         .addCase('REMOVEFROMCART', (state) => {

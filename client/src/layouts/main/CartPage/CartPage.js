@@ -10,10 +10,7 @@ const CartPage = () => {
 
     const auth = useContext(AuthContext)
     const [cart, setCart] = useState([])
-    console.log(cart)
     const store = useSelector(state => state.cart.cart)
-    console.log(store)
-    console.log(!!Object.keys(store).length)
 
 
     useEffect(
