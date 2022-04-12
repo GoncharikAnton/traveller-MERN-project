@@ -1,21 +1,48 @@
-import {compose, createStore} from "redux";
+import {applyMiddleware, combineReducers, compose, createStore} from "redux";
+import thunk from 'redux-thunk'
+import {composeWithDevTools} from "redux-devtools-extension";
+import {createReducer} from "@reduxjs/toolkit";
 
 
-const rootReducer = (state = {}, action = '') => {
+const previewReducer = createReducer({}, (builder)=> {
+    builder
+        .addCase('PREVIEW', (state, {payload}) => {
+            console.log(payload)
+        state.preview = {...payload};
+    })
+    .addCase('CLEAN', (state, {payload}) => {
+        state.preview = {}
+    })
+})
 
-    switch (action.type) {
-        case 'PREVIEW':
-            return {...action.payload}
-        case 'CLEAN':
-            return state
-        default:
-            break;
+const cartReducer = createReducer({}, (builder)=> {
+    builder
+        .addCase('ADDTOCART', (state, {payload}) => {
+            console.log(payload)
+            state.cart = {...payload};
+        })
+        .addCase('REMOVEFROMCART', (state, {payload}) => {
+            state.cart = {}
+        })
+})
+
+
+const composedEnhancers = composeWithDevTools(applyMiddleware(thunk));
+
+const rootReducer = combineReducers({
+    preview: previewReducer,
+
+});
+
+const init = {
+    preview: {
+        preview: {}
+    },
+    cart: {
+        cart: {}
     }
-    return state
 }
 
-
-const store = createStore(rootReducer, compose(
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()))
+const store = createStore(rootReducer, init, composedEnhancers)
 
 export default store

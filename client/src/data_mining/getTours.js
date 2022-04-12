@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-export const getTours = async (category , id ) => {
+export const getTours = async (category = null, id = null) => {
     let data = [];
     let request = ''
     switch (true){

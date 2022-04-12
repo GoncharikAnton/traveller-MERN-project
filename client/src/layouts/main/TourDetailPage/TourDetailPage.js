@@ -18,8 +18,7 @@ import styles from './TourDetailPage.module.css'
 
 const TourDetailPage = () => {
 
-    const store = useSelector((state) => state)
-
+    const store = useSelector((state) => state.preview.preview)
     const tour_id = window.location.pathname.split('/').pop()
     const [tour, setTour] = useState(null)
     const navigate = useNavigate()

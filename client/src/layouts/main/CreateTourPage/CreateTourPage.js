@@ -24,7 +24,8 @@ const CreateTourPage = () => {
     // useEffect(() => {
     //     window.M.updateTextFields()
     // }, []);
-    const store = useSelector((state) => state)
+    const store = useSelector((state) => state.preview.preview)
+    console.log(store._id)
     const dispatch = useDispatch()
 
     const [form, setForm] = useState({
