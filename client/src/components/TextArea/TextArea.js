@@ -10,7 +10,7 @@ const TextArea = ({placeholder, setData = null, id, name, label, data, area_valu
 
     const debounced_fun = _.debounce(function (data){
         setData(data)
-    }, 2500)
+    }, 1000)
 
     return (
         <div className="row">

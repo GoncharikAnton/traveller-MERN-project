@@ -4,10 +4,15 @@ import {getTours} from "../../data_mining/getTours";
 import Button from "../Button/Button";
 import {useDispatch} from "react-redux";
 import axios from "axios";
+import {useNavigate} from "react-router";
+import {useLocation} from "react-router-dom";
 
 export const CartItem = ({item, cart = null, token = null}) => {
     const [tour, setTour] = useState({})
     const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const location = useLocation()
+    console.log(location)
 
     useEffect(() => {
         const tour = getTours(null, item.tourId)
@@ -16,13 +21,17 @@ export const CartItem = ({item, cart = null, token = null}) => {
     }, [item])
 
     const buyTourHandler = () => {
-        axios.patch('/api/v1/users/updateMe', {cart: [...cart, {
-                        price: item.price,
-                        persons: 1,
-                        tourId: item.tourId
-                    }]},
-            {headers: {"Authorization" : `Bearer ${token}`}}).then(res => console.log(res)).catch(e => console.log(e))
+        axios.patch('/api/v1/users/updateMe', {
+                cart: [...cart, {
+                    price: item.price,
+                    persons: 1,
+                    tourId: item.tourId
+                }]
+            },
+            {headers: {"Authorization": `Bearer ${token}`}})
+            .then(res => console.log(res)).catch(e => console.log(e))
         dispatch({type: 'REMOVEFROMCART'})
+
     }
     const removeFromCartHandler = () => {
         dispatch({type: 'REMOVEFROMCART'})
@@ -30,20 +39,26 @@ export const CartItem = ({item, cart = null, token = null}) => {
 
 
     return (
-        <div className={styles.Row}>
-            <div className={styles.Cart_img_div }><img src={`/img/${tour.imageCover}`} className={styles.Cart_img}/></div>
-            <div className={styles.description_div }>
-                <div ><h2>{tour.name}</h2></div>
-                <div className={styles.single_div }><h5>{tour.startDates}</h5></div>
-                <div className={styles.rating_div } >
+        <div className={`hoverable ${styles.Row} `}>
+            <div className={styles.Cart_img_div}>
+                <img src={`/img/${tour.imageCover}`} className={styles.Cart_img}/>
+            </div>
+            <div className={styles.description_div}>
+                <div onClick={() => navigate(`/tours/${tour._id}`)} className={styles.h2_tour}>
+                    <h2>{tour.name}</h2>
+                </div>
+                <div className={styles.single_div}><h5>{tour.startDates}</h5></div>
+                <div className={styles.rating_div}>
 
                     <span style={{fontSize: '20px'}} className={'name'}>Total price: {item.price}</span>
-                    {item.priceType ? <div><Button onClick={() => buyTourHandler()} to={'!#'} description={'Buy the tour'}/>
-                        <Button onClick={() => removeFromCartHandler()}
-                                description={'Remove from cart'}
-                                to={'!#'}
-                                deleting={true}/>
-                    </div> : undefined}
+                    {item.priceType ?
+                        <div>
+                            <Button onClick={() => buyTourHandler()} to={'#'} description={'Buy the tour'}/>
+                            <Button onClick={() => removeFromCartHandler()}
+                                    description={'Remove from cart'}
+                                    to={'#'}
+                                    deleting={true}/>
+                        </div> : undefined}
 
 
                 </div>

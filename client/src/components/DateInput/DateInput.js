@@ -25,7 +25,7 @@ const Date_Input = ({setData, data = null, date_value = ''}) => {
 
 
     return (
-        <input defaultValue={date_value} required validate
+        <input defaultValue={date_value} required
             onChange={(e) => {
                 console.log(e.target.value)
             }}

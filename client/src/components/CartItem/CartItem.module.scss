@@ -24,7 +24,7 @@
 .Cart_img{
   margin: 0;
   padding: 0;
-  width: 100%;
+  width: 300px;
 }
 .Col{
   display: flex;
@@ -56,4 +56,6 @@
 .name{
   margin: 0 40px!important;
 }
-
+.h2_tour:hover{
+  cursor: pointer;
+}

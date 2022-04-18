@@ -17,7 +17,6 @@ const _ = require("lodash")
 
 const CreateTourPage = () => {
 
-    console.log('render')
 
     const navigate = useNavigate()
 
@@ -84,6 +83,8 @@ const CreateTourPage = () => {
             }).catch(e => {
                 console.log(e)
                 if (status !== 201 && e) {
+                    console.log(form)
+
                     return alert("Some fields are empty/invalid. Check your tour's data.")
                 }
             })
