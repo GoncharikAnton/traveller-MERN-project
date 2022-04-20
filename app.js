@@ -2,10 +2,9 @@ const config = require('config');
 const express = require('express');
 const mongoose = require('mongoose');
 const multer = require('multer');
-
-const tourRouter = require('./routes/tourRoutes')
-const tourCategoryRouter = require('./routes/tourCategoryRoutes')
-const userRouter = require('./routes/userRoutes')
+const tourRouter = require(`${__dirname}/routes/tourRoutes`)
+const tourCategoryRouter = require(`${__dirname}/routes/tourCategoryRoutes`)
+const userRouter = require(`${__dirname}/routes/userRoutes`)
 const path = require("path");
 
 const app = express();

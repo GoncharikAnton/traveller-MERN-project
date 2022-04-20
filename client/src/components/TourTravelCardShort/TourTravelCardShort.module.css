@@ -2,12 +2,26 @@
   width: 100%;
   margin: auto !important;
 }
+.cards .card_title {
+  font-size: 1.5em !important;
+}
+.cards .card_example {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.cards .activator_img {
+  position: relative;
+}
 .cards .card-content {
-  height: 250px !important;
+  min-height: 60% !important;
   padding: 12px 24px !important;
 }
 .cards .btn {
   margin: 12px 0 !important;
+}
+.cards span {
+  font-size: 12px !important;
 }
 
 /*# sourceMappingURL=TourTravelCardShort.module.css.map */

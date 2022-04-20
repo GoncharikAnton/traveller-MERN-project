@@ -10,8 +10,7 @@ import IntroCard from "../../../components/IntroCard/IntroCard";
 import PriceCard from "../../../components/PriceCard/PriceCard";
 import {useSelector} from "react-redux";
 import Button from "../../../components/Button/Button";
-import {useNavigate} from "react-router";
-import MapApi from "../../../components/Map/MapApi";
+// import MapApi from "../../../components/Map/MapApi";
 import Map from "../../../components/Map/Map";
 
 import styles from './TourDetailPage.module.css'
@@ -21,7 +20,6 @@ const TourDetailPage = () => {
     const store = useSelector((state) => state.preview.preview)
     const tour_id = window.location.pathname.split('/').pop()
     const [tour, setTour] = useState(null)
-    const navigate = useNavigate()
 
 
     useEffect(() => {

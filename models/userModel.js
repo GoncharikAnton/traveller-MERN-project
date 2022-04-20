@@ -49,7 +49,8 @@ const userSchema = new mongoose.Schema({
   cart: [{
     price: String,
     tourId: String,
-    persons: String
+    persons: String,
+    priceType: String
   }]
 });
 

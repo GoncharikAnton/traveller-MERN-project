@@ -1,5 +1,9 @@
+.card_long {
+  min-height: 800px !important;
+}
+
 .card-content {
-  height: 100% !important;
+  min-height: 100% !important;
   overflow: auto !important;
 }
 .card-content .IntroCards_div {

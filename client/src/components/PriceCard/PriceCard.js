@@ -22,7 +22,7 @@ const PriceCard = ({priceType, price, priceDescription, tourId, to = null}) => {
     return(
         <div className={`${styles.PriceCard} card-panel hoverable `}>
             <div><span className="flow-text">{priceType}</span></div>
-            <div><span className="flow-text cyan-text">{price}</span></div>
+            <div><span className="flow-text cyan-text">{price}$</span></div>
             <div><span className="description">{priceDescription}</span></div>
             <div><Button to={user.isAuthenticated ? `/cart/${user.userId}` : '/login_register'}
                          description={'Buy the tour'}

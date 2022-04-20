@@ -8,7 +8,7 @@ const TourTravelCardLong = ({tour}) => {
     // console.log('render TOURLONG')
 
     return (
-        <div className="card large card-panel hoverable ">
+        <div className={`card large card-panel hoverable ${styles.card_long}`}>
             <div className="card-image">
                 <img src={`/img/${tour.imageCover}`}/>
                 <span className="card-title">{tour.name}</span>

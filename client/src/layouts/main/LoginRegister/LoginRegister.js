@@ -12,7 +12,6 @@ const LoginRegister = () => {
     const [form, setForm] = useState({
         name: '', email: '', password: '', passwordConfirm: ''
     })
-    console.log(form)
     const changeHandler = event => {
         setForm({...form, [event.target.name]: event.target.value})
     }
@@ -37,6 +36,7 @@ const LoginRegister = () => {
     }
     const registerHandler = async () => {
         setRegistration(false)
+
         try {
             const response = await axios.post('/api/v1/users/signup', {...form})
             auth.login(response.data.token, response.data.data.user._id, response.data.data.user.role)
@@ -61,9 +61,9 @@ const LoginRegister = () => {
                                     <div className="input-field">
                                         <input
                                             id="email"
-                                            type="text"
+                                            type="email"
                                             name={'email'}
-                                            className={`${styles['yellow-input']}`}
+                                            className={`validate ${styles['yellow-input']} `}
                                             value={form.email}
                                             onChange={changeHandler}
 
@@ -128,7 +128,7 @@ const LoginRegister = () => {
                                     <div className="input-field">
                                         <input
                                             id="email"
-                                            type="text"
+                                            type="email"
                                             name={'email'}
                                             className={`${styles['yellow-input']}`}
                                             value={form.email}

@@ -2,11 +2,31 @@
   width: 100%;
   margin: auto!important;
 
+
+  .card_title{
+    font-size: 1.5em!important;
+  }
+
+  .card_example{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  .activator_img{
+    position: relative;
+  }
+
   .card-content{
-    height: 250px!important;
+    min-height: 60% !important;
     padding: 12px 24px!important;
   }
   .btn{
     margin: 12px 0!important;
   }
+
+  span{
+    font-size: 12px!important;
+  }
+
 }

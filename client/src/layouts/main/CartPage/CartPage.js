@@ -1,4 +1,4 @@
-import React, {useCallback, useContext, useEffect, useState} from 'react';
+import React, {useCallback, useContext, useEffect, useState, Suspense} from 'react';
 import {AuthContext} from "../../../context/AuthContext";
 import {getCart} from "../../../data_mining/getCart";
 import {IntroCapTitle} from "../../../components/IntroCapTitle/IntroCapTitle";
@@ -12,7 +12,6 @@ const CartPage = () => {
     const auth = useContext(AuthContext)
     const [cart, setCart] = useState([])
     const store = useSelector(state => state.cart.cart)
-
 
     useEffect(
         () => {
@@ -36,10 +35,9 @@ const CartPage = () => {
                 {Object.keys(store).length === 0 && <h4>No tours in cart</h4>}
                 {Object.keys(store).length > 0 &&
                     <li className="collection-item" key={store.tourId}>
-                        <CartItem cart={cart} item={store} token={auth.token}/>
+                        <CartItem cart={cart} item={store} token={auth.token} inCart={true}/>
                     </li>
                 }
-
             </ul>
             <IntroCapTitle capTitle={'Ordered tours'}/>
             <ul className={`collection ${styles.ul_items}`}>
@@ -48,7 +46,6 @@ const CartPage = () => {
                     return <li className="collection-item" key={i._id}><CartItem item={i}/></li>
 
                 })}
-
             </ul>
         </div>
     )

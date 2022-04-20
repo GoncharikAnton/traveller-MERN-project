@@ -26,6 +26,7 @@
 }
 .ContactForm .ContactForm_inp3 {
   min-height: 200px !important;
+  max-height: 250px !important;
   padding-bottom: 210px !important;
   margin: 25px auto !important;
   background: rgba(0, 0, 0, 0.5) !important;
@@ -36,6 +37,17 @@
   width: 81% !important;
   resize: vertical !important;
   text-align: start !important;
+}
+@media screen and (max-width: 690px) {
+  .ContactForm .ContactForm_inp3, .ContactForm input, .ContactForm .ContactForm_inp1 {
+    margin: 20px 40px !important;
+  }
+  .ContactForm .ContactForm_inp1 {
+    margin: 100px 0 20px 40px !important;
+  }
+  .ContactForm .btn {
+    margin: 0 40px !important;
+  }
 }
 
 /*# sourceMappingURL=ContactForm.module.css.map */
